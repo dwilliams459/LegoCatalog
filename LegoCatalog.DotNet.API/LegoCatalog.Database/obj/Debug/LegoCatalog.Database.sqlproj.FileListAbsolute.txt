@@ -1,0 +1,8 @@
+C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Database\bin\Debug\LegoCatalog.Database.dacpac
+C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Database\obj\Debug\LegoCatalog.Database.sqlprojAssemblyReference.cache
+C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Database\obj\Debug\Model.xml
+C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Database\obj\Debug\refactor.xml
+C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Database\obj\Debug\postdeploy.sql
+C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Database\obj\Debug\predeploy.sql
+C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Database\obj\Debug\LegoCatalog.Database.dll
+C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Database\obj\Debug\LegoCatalog.Database.pdb

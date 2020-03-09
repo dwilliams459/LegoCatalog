@@ -1,0 +1,16 @@
+C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.DotNet\LegoCatalog.Data\bin\Debug\netcoreapp3.1\LegoCatalog.Data.deps.json
+C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.DotNet\LegoCatalog.Data\bin\Debug\netcoreapp3.1\LegoCatalog.Data.dll
+C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.DotNet\LegoCatalog.Data\obj\Debug\netcoreapp3.1\LegoCatalog.Data.csprojAssemblyReference.cache
+C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.DotNet\LegoCatalog.Data\obj\Debug\netcoreapp3.1\LegoCatalog.Data.AssemblyInfoInputs.cache
+C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.DotNet\LegoCatalog.Data\obj\Debug\netcoreapp3.1\LegoCatalog.Data.AssemblyInfo.cs
+C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.DotNet\LegoCatalog.Data\bin\Debug\netcoreapp3.1\LegoCatalog.Data.pdb
+C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.DotNet\LegoCatalog.Data\obj\Debug\netcoreapp3.1\LegoCatalog.Data.dll
+C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.DotNet\LegoCatalog.Data\obj\Debug\netcoreapp3.1\LegoCatalog.Data.pdb
+C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Data\bin\Debug\netcoreapp3.1\LegoCatalog.Data.deps.json
+C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Data\bin\Debug\netcoreapp3.1\LegoCatalog.Data.dll
+C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Data\bin\Debug\netcoreapp3.1\LegoCatalog.Data.pdb
+C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Data\obj\Debug\netcoreapp3.1\LegoCatalog.Data.csprojAssemblyReference.cache
+C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Data\obj\Debug\netcoreapp3.1\LegoCatalog.Data.AssemblyInfoInputs.cache
+C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Data\obj\Debug\netcoreapp3.1\LegoCatalog.Data.AssemblyInfo.cs
+C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Data\obj\Debug\netcoreapp3.1\LegoCatalog.Data.dll
+C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Data\obj\Debug\netcoreapp3.1\LegoCatalog.Data.pdb

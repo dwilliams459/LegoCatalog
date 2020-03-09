@@ -1,0 +1,23 @@
+<div class="container page-content">
+  <div class="row">
+    <div class="col-sm-12 col-md">
+      <h2>My Lego</h2>
+      <ul class="parts">
+        <li *ngFor="let part of legoParts" class="lego-item">
+            <div class="lego-item-detail">
+              <span class="badge">Part: {{part.itemId}}</span>
+              <table>
+                <tr>
+                  <td class="image" ><img src='{{part.iconLink}}' /></td>
+                  <td class="discription" style="vertical-align: top;">
+                    {{part.itemName}}</td>
+                </tr>
+              </table> 
+            </div>
+            <div class="clear-fix"></div>
+        </li> 
+      </ul>
+    </div>
+  </div>
+</div>
+ 
