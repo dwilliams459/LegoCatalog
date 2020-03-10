@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\legocatalog.api\\legocatalog.api.csproj": {}
+    "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\legocatalog.api\\LegoCatalog.API.csproj": {}
   },
   "projects": {
-    "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\legocatalog.api\\legocatalog.api.csproj": {
+    "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\legocatalog.api\\LegoCatalog.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\legocatalog.api\\legocatalog.api.csproj",
-        "projectName": "legocatalog.api",
-        "projectPath": "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\legocatalog.api\\legocatalog.api.csproj",
+        "projectUniqueName": "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\legocatalog.api\\LegoCatalog.API.csproj",
+        "projectName": "LegoCatalog.API",
+        "projectPath": "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\legocatalog.api\\LegoCatalog.API.csproj",
         "packagesPath": "C:\\Users\\dwill\\.nuget\\packages\\",
         "outputPath": "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\legocatalog.api\\obj\\",
         "projectStyle": "PackageReference",
