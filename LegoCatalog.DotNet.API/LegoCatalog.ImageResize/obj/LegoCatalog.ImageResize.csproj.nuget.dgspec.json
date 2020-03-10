@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.ImageResize\\LegoCatalog.ImageResize.csproj": {}
+    "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\legocatalog.imageresize\\legocatalog.imageresize.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\LegoCatalog.Data.csproj": {
+    "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\LegoCatalog.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\LegoCatalog.Data.csproj",
+        "projectUniqueName": "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\LegoCatalog.Data.csproj",
         "projectName": "LegoCatalog.Data",
-        "projectPath": "C:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\LegoCatalog.Data.csproj",
-        "packagesPath": "C:\\Users\\david.williams1\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\obj\\",
+        "projectPath": "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\LegoCatalog.Data.csproj",
+        "packagesPath": "C:\\Users\\dwill\\.nuget\\packages\\",
+        "outputPath": "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\david.williams1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dwill\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -65,20 +65,20 @@
         }
       }
     },
-    "C:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.ImageResize\\LegoCatalog.ImageResize.csproj": {
+    "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\legocatalog.imageresize\\legocatalog.imageresize.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.ImageResize\\LegoCatalog.ImageResize.csproj",
-        "projectName": "LegoCatalog.ImageResize",
-        "projectPath": "C:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.ImageResize\\LegoCatalog.ImageResize.csproj",
-        "packagesPath": "C:\\Users\\david.williams1\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.ImageResize\\obj\\",
+        "projectUniqueName": "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\legocatalog.imageresize\\legocatalog.imageresize.csproj",
+        "projectName": "legocatalog.imageresize",
+        "projectPath": "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\legocatalog.imageresize\\legocatalog.imageresize.csproj",
+        "packagesPath": "C:\\Users\\dwill\\.nuget\\packages\\",
+        "outputPath": "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\legocatalog.imageresize\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\david.williams1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dwill\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -91,8 +91,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\LegoCatalog.Data.csproj": {
-                "projectPath": "C:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\LegoCatalog.Data.csproj"
+              "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\LegoCatalog.Data.csproj": {
+                "projectPath": "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\LegoCatalog.Data.csproj"
               }
             }
           }
@@ -111,6 +111,18 @@
               "version": "[7.15.4, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "Microsoft.Extensions.Configuration.FileExtensions": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",
               "version": "[3.1.2, )"
             }

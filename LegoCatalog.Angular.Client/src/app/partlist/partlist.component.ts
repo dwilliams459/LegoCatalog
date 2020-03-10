@@ -29,7 +29,7 @@ export class PartlistComponent implements OnInit {
     const partSearch: partSearchCriteria = {
       partId: 0,
       itemId: "",
-      itemName: "Electrical",
+      itemName: "Hieroglyphs",
       categoryName: "",
       page: 0,
       pageSize: 10

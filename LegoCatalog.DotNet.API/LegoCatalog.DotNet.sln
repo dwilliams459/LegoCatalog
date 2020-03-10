@@ -11,8 +11,6 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "LegoCatalog.Database", "Leg
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LegoCatalog.ImageResize", "LegoCatalog.ImageResize\LegoCatalog.ImageResize.csproj", "{7D6ED755-D19E-4ABB-A321-D173A45D913C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{6FA9CB57-8F1F-49F9-8F7C-FCE3926D18DF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

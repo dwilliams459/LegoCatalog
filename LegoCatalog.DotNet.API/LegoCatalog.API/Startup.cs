@@ -27,7 +27,7 @@ namespace LegoCatalog.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<PartsCatalogDbContext>(opt =>
-                opt.UseSqlServer("Data Source=localhost;Initial Catalog=legocatalog;Integrated Security=True") //Configuration.GetConnectionString("LegoCatalogDatabase"))
+                opt.UseSqlServer(Configuration.GetConnectionString("LegoCatalogDatabase"))  //"Data Source=localhost;Initial Catalog=legocatalog;Integrated Security=True") //)
             );
 
             services.AddCors();
@@ -38,6 +38,8 @@ namespace LegoCatalog.API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            //app.CreateDefaultBuilder();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

@@ -4,6 +4,10 @@ using LegoCatalog.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using System.Threading;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.FileExtensions;
+using Microsoft.Extensions.Configuration.Json;
+using System.IO;
 
 // https://www.nuget.org/packages/Magick.NET-Q8-x64/
 // https://github.com/dlemstra/Magick.NET/
@@ -13,8 +17,20 @@ namespace LegoCatalog.ImageResize
 {
     class Program
     {
+        public static IConfiguration _config; 
+
         static void Main(string[] args)
         {
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json");
+ 
+            _config = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", true, true)
+                .Build();
+
+            Console.WriteLine(_config["ConnectionStrings:LegoCatalogDatabase"]);
+
             var imageResizer = new ImageResize();
             int i = 0;
 

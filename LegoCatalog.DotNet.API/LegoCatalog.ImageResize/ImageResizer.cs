@@ -5,6 +5,9 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Net;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.FileExtensions;
+using Microsoft.Extensions.Configuration.Json;
 
 // https://www.nuget.org/packages/Magick.NET-Q8-x64/
 // https://github.com/dlemstra/Magick.NET/
@@ -20,6 +23,9 @@ namespace LegoCatalog.ImageResize
 
         public ImageResize()
         {
+
+            //Program._config
+
             var contextBuilder = new DbContextOptionsBuilder<PartsCatalogDbContext>();
             contextBuilder.UseSqlServer(LegoCatalogConnectionString);
             db = new PartsCatalogDbContext(contextBuilder.Options);
@@ -27,7 +33,7 @@ namespace LegoCatalog.ImageResize
 
         public void ResizeSetOfLegoImages(int totalImagesToConvert = 10)
         {
-            string LegoImagesWriteLocation = "c:\\LegoCatalog\\Images";
+            string LegoImagesWriteLocation = "f:\\LegoCatalog\\Images";
 
             int i = 1;
             foreach (var part in db.Parts.Where(p => string.IsNullOrWhiteSpace(p.IconLink)).Take(totalImagesToConvert).ToList())

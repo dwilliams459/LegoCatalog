@@ -44,3 +44,10 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+*.dll
+*.pdb
+
+LegoCatalog.API.dll
+LegoCatalog.API.exe
+LegoCatalog.API.pdb
