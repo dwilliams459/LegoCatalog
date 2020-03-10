@@ -27,7 +27,7 @@ namespace LegoCatalog.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<PartsCatalogDbContext>(opt =>
-                opt.UseSqlServer(Configuration.GetConnectionString("LegoCatalogDatabase"))  //"Data Source=localhost;Initial Catalog=legocatalog;Integrated Security=True") //)
+                opt.UseSqlServer(Configuration["ConnectionStrings:LegoCatalogDatabase"])  //"Data Source=localhost;Initial Catalog=legocatalog;Integrated Security=True") //)
             );
 
             services.AddCors();

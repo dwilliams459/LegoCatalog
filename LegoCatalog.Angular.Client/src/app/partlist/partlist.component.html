@@ -2,6 +2,12 @@
   <div class="row">
     <div class="col-sm-12 col-md">
       <h2>My Lego</h2>
+      <div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Favorite food</mat-label>
+          <input matInput placeholder="Ex. Pizza" value="Sushi">
+        </mat-form-field>
+      </div>
       <ul class="parts">
         <li *ngFor="let part of legoParts" class="lego-item">
             <div class="lego-item-detail">

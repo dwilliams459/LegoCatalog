@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-root',

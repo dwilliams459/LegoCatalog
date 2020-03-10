@@ -54,7 +54,7 @@ namespace LegoCatalog.API.Controllers
                     return await partQuery.FirstOrDefaultAsync();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
