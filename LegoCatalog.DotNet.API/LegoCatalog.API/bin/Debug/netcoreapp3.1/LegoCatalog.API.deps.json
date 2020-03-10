@@ -22,7 +22,7 @@
   },
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "legocatalog.api/1.0.0": {
+      "LegoCatalog.API/1.0.0": {
         "dependencies": {
           "LegoCatalog.Data": "1.0.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
@@ -299,10 +299,10 @@
           "WindowsBase": "4.0.0.0"
         },
         "runtime": {
-          "legocatalog.api.dll": {}
+          "LegoCatalog.API.dll": {}
         },
         "compile": {
-          "legocatalog.api.dll": {}
+          "LegoCatalog.API.dll": {}
         }
       },
       "Microsoft.AspNetCore.Razor.Design/2.2.0": {},
@@ -2826,7 +2826,7 @@
     }
   },
   "libraries": {
-    "legocatalog.api/1.0.0": {
+    "LegoCatalog.API/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

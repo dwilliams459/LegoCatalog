@@ -8,6 +8,7 @@
 /obj
 *.dll
 *.pdb
+*.exe
 
 # Only exists if Bazel was run
 /bazel-out
