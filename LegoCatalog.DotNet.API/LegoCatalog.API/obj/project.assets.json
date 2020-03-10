@@ -4937,11 +4937,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.API\\LegoCatalog.API.csproj",
+      "projectUniqueName": "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\legocatalog.api\\LegoCatalog.API.csproj",
       "projectName": "LegoCatalog.API",
-      "projectPath": "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.API\\LegoCatalog.API.csproj",
+      "projectPath": "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\legocatalog.api\\LegoCatalog.API.csproj",
       "packagesPath": "C:\\Users\\dwill\\.nuget\\packages\\",
-      "outputPath": "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.API\\obj\\",
+      "outputPath": "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\legocatalog.api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5002,5 +5002,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\legocatalog.api\\obj\\LegoCatalog.API.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

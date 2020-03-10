@@ -46,22 +46,4 @@ testem.log
 Thumbs.db
 
 *.dll
-*.pdb
-
-LegoCatalog.API.dll
-LegoCatalog.API.exe
-LegoCatalog.API.pdb
 LegoCatalog.DotNet.API/LegoCatalog.API/bin/Debug/netcoreapp3.1/LegoCatalog.API.dll
-LegoCatalog.DotNet.API/LegoCatalog.API/bin/Debug/netcoreapp3.1/LegoCatalog.API.deps.json
-LegoCatalog.DotNet.API/LegoCatalog.API/bin/Debug/netcoreapp3.1/LegoCatalog.API.dll
-LegoCatalog.DotNet.API/LegoCatalog.API/bin/Debug/netcoreapp3.1/LegoCatalog.API.exe
-LegoCatalog.DotNet.API/LegoCatalog.API/bin/Debug/netcoreapp3.1/LegoCatalog.API.pdb
-LegoCatalog.DotNet.API/LegoCatalog.API/obj/LegoCatalog.API.csproj.nuget.cache
-LegoCatalog.DotNet.API/LegoCatalog.API/obj/LegoCatalog.API.csproj.nuget.dgspec.json
-LegoCatalog.DotNet.API/LegoCatalog.API/obj/Debug/netcoreapp3.1/LegoCatalog.API.csprojAssemblyReference.cache
-LegoCatalog.DotNet.API/LegoCatalog.API/obj/Debug/netcoreapp3.1/LegoCatalog.API.dll
-LegoCatalog.DotNet.API/LegoCatalog.API/obj/Debug/netcoreapp3.1/LegoCatalog.API.exe
-LegoCatalog.DotNet.API/LegoCatalog.API/obj/Debug/netcoreapp3.1/LegoCatalog.API.pdb
-LegoCatalog.DotNet.API/LegoCatalog.API/obj/Debug/netcoreapp3.1/LegoCatalog.API.RazorTargetAssemblyInfo.cache
-LegoCatalog.DotNet.API/LegoCatalog.Data/obj/Debug/netcoreapp3.1/LegoCatalog.Data.assets.cache
-LegoCatalog.DotNet.API/LegoCatalog.Data/obj/Debug/netcoreapp3.1/LegoCatalog.Data.csprojAssemblyReference.cache
