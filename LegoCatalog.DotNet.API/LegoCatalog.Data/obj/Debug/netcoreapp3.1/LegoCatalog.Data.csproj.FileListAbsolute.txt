@@ -1,11 +1,3 @@
-C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.DotNet\LegoCatalog.Data\bin\Debug\netcoreapp3.1\LegoCatalog.Data.deps.json
-C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.DotNet\LegoCatalog.Data\bin\Debug\netcoreapp3.1\LegoCatalog.Data.dll
-C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.DotNet\LegoCatalog.Data\obj\Debug\netcoreapp3.1\LegoCatalog.Data.csprojAssemblyReference.cache
-C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.DotNet\LegoCatalog.Data\obj\Debug\netcoreapp3.1\LegoCatalog.Data.AssemblyInfoInputs.cache
-C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.DotNet\LegoCatalog.Data\obj\Debug\netcoreapp3.1\LegoCatalog.Data.AssemblyInfo.cs
-C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.DotNet\LegoCatalog.Data\bin\Debug\netcoreapp3.1\LegoCatalog.Data.pdb
-C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.DotNet\LegoCatalog.Data\obj\Debug\netcoreapp3.1\LegoCatalog.Data.dll
-C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.DotNet\LegoCatalog.Data\obj\Debug\netcoreapp3.1\LegoCatalog.Data.pdb
 C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Data\bin\Debug\netcoreapp3.1\LegoCatalog.Data.deps.json
 C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Data\bin\Debug\netcoreapp3.1\LegoCatalog.Data.dll
 C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Data\bin\Debug\netcoreapp3.1\LegoCatalog.Data.pdb
@@ -14,11 +6,3 @@ C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Data\obj\Debu
 C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Data\obj\Debug\netcoreapp3.1\LegoCatalog.Data.AssemblyInfo.cs
 C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Data\obj\Debug\netcoreapp3.1\LegoCatalog.Data.dll
 C:\Projects\Sandbox\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Data\obj\Debug\netcoreapp3.1\LegoCatalog.Data.pdb
-F:\Projects\Sandbox\LegoCatalog\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Data\bin\Debug\netcoreapp3.1\LegoCatalog.Data.deps.json
-F:\Projects\Sandbox\LegoCatalog\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Data\bin\Debug\netcoreapp3.1\LegoCatalog.Data.dll
-F:\Projects\Sandbox\LegoCatalog\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Data\bin\Debug\netcoreapp3.1\LegoCatalog.Data.pdb
-F:\Projects\Sandbox\LegoCatalog\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Data\obj\Debug\netcoreapp3.1\LegoCatalog.Data.csprojAssemblyReference.cache
-F:\Projects\Sandbox\LegoCatalog\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Data\obj\Debug\netcoreapp3.1\LegoCatalog.Data.AssemblyInfoInputs.cache
-F:\Projects\Sandbox\LegoCatalog\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Data\obj\Debug\netcoreapp3.1\LegoCatalog.Data.AssemblyInfo.cs
-F:\Projects\Sandbox\LegoCatalog\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Data\obj\Debug\netcoreapp3.1\LegoCatalog.Data.dll
-F:\Projects\Sandbox\LegoCatalog\LegoCatalog\LegoCatalog.DotNet.API\LegoCatalog.Data\obj\Debug\netcoreapp3.1\LegoCatalog.Data.pdb

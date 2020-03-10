@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\LegoCatalog.Data.csproj": {}
+    "C:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\LegoCatalog.Data.csproj": {}
   },
   "projects": {
-    "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\LegoCatalog.Data.csproj": {
+    "C:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\LegoCatalog.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\LegoCatalog.Data.csproj",
+        "projectUniqueName": "C:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\LegoCatalog.Data.csproj",
         "projectName": "LegoCatalog.Data",
-        "projectPath": "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\LegoCatalog.Data.csproj",
-        "packagesPath": "C:\\Users\\dwill\\.nuget\\packages\\",
-        "outputPath": "F:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\obj\\",
+        "projectPath": "C:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\LegoCatalog.Data.csproj",
+        "packagesPath": "C:\\Users\\david.williams1\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\dwill\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\david.williams1\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
