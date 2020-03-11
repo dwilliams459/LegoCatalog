@@ -46,7 +46,6 @@ testem.log
 Thumbs.db
 
 *.dll
-<<<<<<< HEAD
 *.pdb
 *.cache
 *.exe
@@ -367,8 +366,6 @@ __pycache__/
 # tools/**
 # !tools/packages.config
 
-# Tabs Studio
-*.tss
 
 # Telerik's JustMock configuration file
 *.jmconfig
@@ -405,6 +402,3 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
-=======
-LegoCatalog.DotNet.API/LegoCatalog.API/bin/Debug/netcoreapp3.1/LegoCatalog.API.dll
->>>>>>> fe60e92879530f4655c06ddd5618ba406d58e32a

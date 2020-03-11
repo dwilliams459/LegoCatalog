@@ -1,1 +1,26 @@
-<p>partlist works!</p>
+<mat-card >
+  <mat-card-title>Part Search</mat-card-title>
+  <div style="clear:both;"></div>
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Favorite food</mat-label>
+      <input matInput placeholder="Ex. Pizza" value="Sushi" />
+    </mat-form-field>
+  </div>
+  <ul class="parts">
+    <li *ngFor="let part of legoParts" class="lego-item">
+      <div class="lego-item-detail">
+        <span class="badge">Part: {{ part.itemId }}</span>
+        <table>
+          <tr>
+            <td class="image"><img src="{{ part.iconLink }}" /></td>
+            <td class="discription" style="vertical-align: top;">
+              {{ part.itemName }}
+            </td>
+          </tr>
+        </table> 
+      </div>
+      <div class="clear-fix"></div>
+    </li>
+  </ul>
+</mat-card>
