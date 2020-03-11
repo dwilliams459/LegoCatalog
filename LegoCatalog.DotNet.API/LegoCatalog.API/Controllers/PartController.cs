@@ -9,6 +9,7 @@ using LegoCatalog.Data;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http.Extensions;
 using System.IO;
+using LegoCatalog.Service;
 
 namespace LegoCatalog.API.Controllers
 {
@@ -17,26 +18,13 @@ namespace LegoCatalog.API.Controllers
     public class PartController : ControllerBase
     {
         private PartsCatalogDbContext _context;
+        private PartService _partService;
 
-        public PartController(PartsCatalogDbContext context)
+        public PartController(PartsCatalogDbContext context, PartService partService)
         {
             _context = context;
+            _partService = partService;
         }
-
-        // private Uri GetAbsoluteUri()
-        // {
-        //     var request = _httpContextAccessor.HttpContext.Request;
-        //     UriBuilder uriBuilder = new UriBuilder();
-        //     uriBuilder.Scheme = request.Scheme;
-        //     uriBuilder.Host = request.Host.Host;
-        //     uriBuilder.Path = request.Path.ToString();
-        //     uriBuilder.Query = request.QueryString.ToString();
-        //     return uriBuilder.Uri;
-        // }
-
-        // GET: /<controller>/
-
-        private string sourcePath = "c:\\LegoCatalog\\images";
 
         [HttpGet]
         [Route("partId/{partId}")]
@@ -77,40 +65,10 @@ namespace LegoCatalog.API.Controllers
         [Route("search")]
         public async Task<List<Part>> Search(PartSearchCriteria searchCriteria = null)
         {
-            var partQuery = (_context.Parts.Include(p => p.Category).Include(p => p.ItemType)).Where(p => true);
-
-            if (searchCriteria.PartId != null && searchCriteria.PartId > 0)
-            {
-                partQuery = partQuery.Where(p => p.PartId.Equals(searchCriteria.PartId));
-            }
-            else if (searchCriteria.ItemId != null && searchCriteria.ItemId.Length > 0)
-            {
-                partQuery = partQuery.Where(p => p.ItemId == searchCriteria.ItemId);
-            }
-            else
-            {
-                if (searchCriteria.ItemName != null && searchCriteria.ItemName.Length > 0)
-                {
-                    partQuery = partQuery.Where(p => p.ItemName.Contains(searchCriteria.ItemName));
-                }
-                if (searchCriteria.CategoryName != null && searchCriteria.CategoryName.Length > 0)
-                    partQuery = partQuery.Where(p => p.Category.Name.Contains(searchCriteria.CategoryName));
-            }
-
-            partQuery = partQuery.Where(p => !string.IsNullOrWhiteSpace(p.IconLink) && p.IconLink != "error" );
-
-            if (searchCriteria.Page > 0)
-            {
-                partQuery = partQuery.Skip(searchCriteria.Page * searchCriteria.PageSize);
-            }
-            var parts = await partQuery.Take(searchCriteria.PageSize).ToListAsync();
-
-            foreach (var p in parts)
-            {
-                p.IconLink =  $"http://localhost:5000/image/{p.IconLink}";
-            }
+            List<Part> parts = await _partService.FindParts(searchCriteria);
 
             return (parts == null) ? new List<Part>() : parts;
         }
+
     }
 }

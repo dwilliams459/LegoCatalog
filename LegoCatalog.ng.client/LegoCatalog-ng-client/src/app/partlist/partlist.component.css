@@ -1,0 +1,66 @@
+.parts {
+  display: block;
+  position:relative;
+  padding-inline-start: 0px;
+}
+.lego-item{
+  box-sizing: border-box;
+  display:block;
+  color: rgb(33, 37, 41);
+  margin: 6px 6px 6px 6px;
+  float:left;
+  width: 45%;
+  min-width:400px;
+  padding-inline-start:1px;
+  box-shadow: 0px 2px 5px rgb(221, 221, 221);
+}
+
+.lego-item-detail {
+  background-color: white;
+  border: rgb(204,204,204) solid 1px;
+  box-sizing: border-box;
+  color: rgb(33, 37, 41);
+  display:block;
+  left:0px;
+  padding: 7px;
+  border-radius: 8px;
+}
+
+.badge {
+  text-align: left;
+  font-size: 12pt;
+}
+.image {
+  width:70px;
+  height:70px;
+  margin: 2px;
+  text-align: center;
+}
+
+.image img {
+  max-width:60px;
+  max-height:60px;
+  background-color:#dbdbdb;
+}
+.discription {
+  vertical-align: top;
+  padding-left:10px;
+}
+
+.clear-fix {
+  clear:both;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+mat-form-field {
+  margin-right: 16px;
+}

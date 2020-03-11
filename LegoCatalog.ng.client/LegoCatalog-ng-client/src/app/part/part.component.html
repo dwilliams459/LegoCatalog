@@ -1,6 +1,6 @@
 <mat-card class="pagecontainer">
-  <mat-icon style="float:left;width:60px;height:60px;margin-right:16px;">
-    <img src="{{ part.iconLink }}" style='width:60px;'/>
+  <mat-icon style="float:left;width:70px;height:70px;margin-right:16px;">
+    <img src="{{ part.iconLink }}" style='width:70px;'/>
   </mat-icon>  
   <div style="float:left;">
     <mat-card-title> Part: {{ part.itemName }} </mat-card-title>
@@ -13,7 +13,6 @@
     <div><label>Item Type: </label>{{ part.itemType }}</div>
     <div><label>Part Id: </label>{{ part.partId }}</div>
     <div><label>Item Type: </label>{{ part.itemType }}</div>
-    <div><label>Item Name: </label>{{ part.itemName }}</div>
     <div><label>Category: </label>{{ part.category }}</div>
     <div><label>Category Name: </label>{{ part.categoryName }}</div>
     <div><label>Weight: </label>{{ part.weight }}</div>
@@ -22,7 +21,5 @@
     <div><label>Dimension Z: </label>{{ part.dimensionZ }}</div>
     <div><label>Image: </label></div>
     <div><img src="{{ part.imageLink }}" style="max-height:150px;" /></div>
-    <div><label>Icon link: </label></div>
-    <div><img src="{{ part.iconLink }}" /></div>
   </mat-card-content>
 </mat-card>

@@ -6,10 +6,10 @@ import { PartlistComponent } from './partlist/partlist.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'part', component: PartComponent },
-  { path: 'partlist', component: PartlistComponent }
+  { path: 'partlist', component: PartlistComponent },
+  { path: '', redirectTo: 'partlist', pathMatch: 'full' }
 ];
 
 @NgModule({

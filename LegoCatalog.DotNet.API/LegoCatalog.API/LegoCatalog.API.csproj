@@ -12,6 +12,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LegoCatalog.Data\LegoCatalog.Data.csproj" />
+    <ProjectReference Include="..\LegoCatalog.DTO\LegoCatalog.DTO.csproj" />
+    <ProjectReference Include="..\LegoCatalog.Service\LegoCatalog.Service.csproj" />
   </ItemGroup>
 
 </Project>

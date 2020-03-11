@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using LegoCatalog.Data;
+using LegoCatalog.Service;
 
 namespace LegoCatalog.API
 {
@@ -29,6 +30,8 @@ namespace LegoCatalog.API
             services.AddDbContext<PartsCatalogDbContext>(opt =>
                 opt.UseSqlServer(Configuration["ConnectionStrings:LegoCatalogDatabase"])  //"Data Source=localhost;Initial Catalog=legocatalog;Integrated Security=True") //)
             );
+
+            services.AddScoped<PartService>();
 
             services.AddCors();
 
