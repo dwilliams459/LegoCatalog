@@ -6,6 +6,8 @@ import { ApiService } from '../api.service';
 import { PartResponse } from '../PartResponse';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { $ } from 'protractor';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { DetailDialogComponent } from '../detaildialog/detaildialog.component';
 
 @Component({
   selector: 'app-partlist',
@@ -19,12 +21,35 @@ export class PartlistComponent implements OnInit {
   form: FormGroup;
   searchPartName: string;
 
-  constructor(private fb: FormBuilder, private partService: ApiService) { }
+  constructor(private fb: FormBuilder, private dialog: MatDialog, private partService: ApiService) { }
 
   ngOnInit() {
     this.form = this.fb.group({
     });
     this.search();
+  }
+
+  openDetailsDialog(part: Part) {
+    const dialogConfig = new MatDialogConfig();
+
+    console.log('openDetailsDialog: ' + part);
+    dialogConfig.autoFocus = true;
+    dialogConfig.minHeight = 400;
+    dialogConfig.data = {
+      imageLink: part.imageLink,
+      itemName: part.itemName,
+      itemId: part.itemId,
+      part
+    };
+
+    const dialogRef = this.dialog.open(DetailDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(
+        data => console.log('Dialog output:', data)
+    );
+  }
+  displayPartDialog(itemId: string) {
+    console.log('display item id:' + itemId);
   }
 
   search(itemName: string = '', partName: string = '') {
@@ -35,7 +60,6 @@ export class PartlistComponent implements OnInit {
       categoryName: '',
       page: 0,
       pageSize: 10
-      //name: this.form.get('name').value,
     };
 
     this.partService.getParts(partSearch).then((response: any) => {

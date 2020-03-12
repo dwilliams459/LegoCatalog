@@ -26,6 +26,4 @@ export class PartComponent implements OnInit {
     });
   }
 
-
-
 }

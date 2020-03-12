@@ -4,28 +4,33 @@
   <div>
     <mat-form-field class="" style="width: 20%; min-width:300px;">
       <mat-label>Part Id</mat-label>
-      <input #txtItemName matInput placeholder="" (keyup)="search(txtItemName.value, txtPartName.value)" />
+      <input #txtItemId matInput placeholder="" (keyup)="search(txtItemId.value, txtPartName.value)" />
     </mat-form-field>
     <mat-form-field class="" style="width: 20%; min-width:300px;">
       <mat-label>Part Name</mat-label>
-      <input #txtPartName matInput placeholder="" (keyup)="search(txtPartName.value)" />
+      <input #txtPartName matInput placeholder="" (keyup)="search(txtItemId.value, txtPartName.value)" />
     </mat-form-field>
   </div>
-  <mat-card class="container" fxLayoutWrap fxlayoutAlign="" >
+  <mat-card class="container" fxLayoutWrap fxlayoutAlign="">
     <ul class="parts">
-      <li *ngFor="let part of legoParts" class="lego-item">
-          <div class="lego-item-detail">
-            <span class="badge">Part: {{part.itemId}}</span>
-            <table>
-              <tr>
-                <td class="image" ><img src='{{part.iconLink}}' /></td>
-                <td class="discription" style="vertical-align: top;">
-                  {{part.itemName}}</td>
-              </tr>
-            </table> 
-          </div>
-          <div class="clear-fix"></div>
-      </li> 
+      <li *ngFor="let part of legoParts" class="lego-item" (click)='openDetailsDialog(part)'>
+        <div class="lego-item-detail">
+          <table>
+            <tr>
+              <td class="image"><img src='{{part.iconLink}}' /></td>
+              <td class="detail" style="vertical-align: top;">
+                <div class="discription">
+                  {{part.itemName}}
+                </div>
+                <div class="itemId">
+                  <label >Item ID: </label>{{ part.itemId }}
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="clear-fix"></div>
+      </li>
     </ul>
     <div style="clear:both;"></div>
   </mat-card>

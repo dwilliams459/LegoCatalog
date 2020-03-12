@@ -18,13 +18,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule, MatInput } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { DetailDialogComponent } from './detaildialog/detaildialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PartComponent,
-    PartlistComponent
+    PartlistComponent,
+    DetailDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatCardModule,
     MatProgressSpinnerModule,
     MatInputModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
