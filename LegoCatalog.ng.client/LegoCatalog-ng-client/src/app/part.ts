@@ -11,4 +11,5 @@ export class Part {
   dimensionZ: number | null;
   imageLink: string | null;
   iconLink: string | null;
+  quantity: number | null;
 }

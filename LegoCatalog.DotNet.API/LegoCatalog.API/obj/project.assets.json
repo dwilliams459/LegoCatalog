@@ -4977,11 +4977,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.API\\LegoCatalog.API.csproj",
+      "projectUniqueName": "C:\\Projects\\Sandbox\\LegoCatalog\\legocatalog.dotnet.api\\legocatalog.api\\LegoCatalog.API.csproj",
       "projectName": "LegoCatalog.API",
-      "projectPath": "C:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.API\\LegoCatalog.API.csproj",
+      "projectPath": "C:\\Projects\\Sandbox\\LegoCatalog\\legocatalog.dotnet.api\\legocatalog.api\\LegoCatalog.API.csproj",
       "packagesPath": "C:\\Users\\david.williams1\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.API\\obj\\",
+      "outputPath": "C:\\Projects\\Sandbox\\LegoCatalog\\legocatalog.dotnet.api\\legocatalog.api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5000,14 +5000,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\LegoCatalog.Data.csproj": {
-              "projectPath": "C:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\LegoCatalog.Data.csproj"
+            "C:\\Projects\\Sandbox\\LegoCatalog\\legocatalog.dotnet.api\\LegoCatalog.Data\\LegoCatalog.Data.csproj": {
+              "projectPath": "C:\\Projects\\Sandbox\\LegoCatalog\\legocatalog.dotnet.api\\LegoCatalog.Data\\LegoCatalog.Data.csproj"
             },
-            "C:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.DTO\\LegoCatalog.DTO.csproj": {
-              "projectPath": "C:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.DTO\\LegoCatalog.DTO.csproj"
+            "C:\\Projects\\Sandbox\\LegoCatalog\\legocatalog.dotnet.api\\LegoCatalog.DTO\\LegoCatalog.DTO.csproj": {
+              "projectPath": "C:\\Projects\\Sandbox\\LegoCatalog\\legocatalog.dotnet.api\\LegoCatalog.DTO\\LegoCatalog.DTO.csproj"
             },
-            "C:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Service\\LegoCatalog.Service.csproj": {
-              "projectPath": "C:\\Projects\\Sandbox\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Service\\LegoCatalog.Service.csproj"
+            "C:\\Projects\\Sandbox\\LegoCatalog\\legocatalog.dotnet.api\\LegoCatalog.Service\\LegoCatalog.Service.csproj": {
+              "projectPath": "C:\\Projects\\Sandbox\\LegoCatalog\\legocatalog.dotnet.api\\LegoCatalog.Service\\LegoCatalog.Service.csproj"
             }
           }
         }

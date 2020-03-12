@@ -24,6 +24,7 @@
   left:0px;
   padding: 7px;
   border-radius: 8px;
+  min-height: 110px;
 }
 
 .badge {
@@ -33,7 +34,7 @@
 .image {
   width:80px;
   height:80px;
-  margin: 2px;
+  margin: 2px 0px 0px 2px;
   text-align: center;
 }
 
@@ -45,7 +46,6 @@
 .detail {
   vertical-align: top;
   padding-left:10px;
-  padding-bottom:10px;
 }
 .discription {
   font-size:16px;

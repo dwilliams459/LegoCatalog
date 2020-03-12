@@ -8,6 +8,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { $ } from 'protractor';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DetailDialogComponent } from '../detaildialog/detaildialog.component';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-partlist',
@@ -20,13 +21,36 @@ export class PartlistComponent implements OnInit {
 
   form: FormGroup;
   searchPartName: string;
+  pageIndex = 0;
+  length = 100;
+  pageSize = 10;
+  pageSizeOptions: number[] = [5, 10, 25, 100];
 
+  // MatPaginator Output
+  pageEvent: PageEvent;
+  
   constructor(private fb: FormBuilder, private dialog: MatDialog, private partService: ApiService) { }
 
   ngOnInit() {
     this.form = this.fb.group({
     });
     this.search();
+  }
+  setPageSizeOptions(setPageSizeOptionsInput: string) {
+    if (setPageSizeOptionsInput) {
+      this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+    }
+  }
+
+  pageChanged(itemId: string, itemName: string, pageEvent?: PageEvent, )
+  {
+    this.pageIndex = pageEvent.pageIndex;
+    this.pageSize = pageEvent.pageSize;
+    this.length = pageEvent.length;
+
+    this.search(itemId, itemName);
+
+    return pageEvent;
   }
 
   openDetailsDialog(part: Part) {
@@ -58,8 +82,8 @@ export class PartlistComponent implements OnInit {
       itemId: itemName,
       itemName: partName,
       categoryName: '',
-      page: 0,
-      pageSize: 10
+      page: this.pageIndex,
+      pageSize: this.pageSize
     };
 
     this.partService.getParts(partSearch).then((response: any) => {

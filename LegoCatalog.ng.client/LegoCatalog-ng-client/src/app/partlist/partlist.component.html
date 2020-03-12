@@ -10,20 +10,28 @@
       <mat-label>Part Name</mat-label>
       <input #txtPartName matInput placeholder="" (keyup)="search(txtItemId.value, txtPartName.value)" />
     </mat-form-field>
+    <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" [pageIndex]="pageIndex"
+      (page)="pageEvent = pageChanged(txtItemId.value, txtPartName.value, $event)"> 
+    </mat-paginator>
   </div>
   <mat-card class="container" fxLayoutWrap fxlayoutAlign="">
     <ul class="parts">
-      <li *ngFor="let part of legoParts" class="lego-item" (click)='openDetailsDialog(part)'>
+      <li *ngFor="let part of legoParts" class="lego-item" >
         <div class="lego-item-detail">
           <table>
             <tr>
-              <td class="image"><img src='{{part.iconLink}}' /></td>
+              <td class="image" (click)='openDetailsDialog(part)'><img src='{{part.iconLink}}' /></td>
               <td class="detail" style="vertical-align: top;">
-                <div class="discription">
+                <div class="discription" (click)='openDetailsDialog(part)'>
                   {{part.itemName}}
                 </div>
+                <div class="itemId" (click)='openDetailsDialog(part)'>
+                  <label>Item ID: </label>{{ part.itemId }}
+                </div>
                 <div class="itemId">
-                  <label >Item ID: </label>{{ part.itemId }}
+                  <label>Quantity: </label>{{ part.quantity }} 
+                  <button mat-icon-button aria-label="Example icon-button with a heart icon">-</button>
+                  <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">+</button>
                 </div>
               </td>
             </tr>
