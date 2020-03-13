@@ -2,6 +2,32 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "AutoMapper/9.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.5.0",
+          "System.Reflection.Emit": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/AutoMapper.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/AutoMapper.dll": {}
+        }
+      },
+      "AutoMapper.Extensions.Microsoft.DependencyInjection/7.0.0": {
+        "type": "package",
+        "dependencies": {
+          "AutoMapper": "9.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Razor.Design/2.2.0": {
         "type": "package",
         "build": {
@@ -605,7 +631,7 @@
           "System.Threading.Tasks": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.5/_._": {}
+          "ref/netstandard1.5/System.IO.dll": {}
         }
       },
       "System.IO.FileSystem/4.3.0": {
@@ -742,7 +768,7 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.5/_._": {}
+          "ref/netstandard1.5/System.Reflection.dll": {}
         }
       },
       "System.Reflection.Emit/4.3.0": {
@@ -755,7 +781,7 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.1/_._": {}
+          "ref/netstandard1.1/System.Reflection.Emit.dll": {}
         },
         "runtime": {
           "lib/netstandard1.3/System.Reflection.Emit.dll": {}
@@ -769,7 +795,7 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.0/_._": {}
+          "ref/netstandard1.0/System.Reflection.Emit.ILGeneration.dll": {}
         },
         "runtime": {
           "lib/netstandard1.3/System.Reflection.Emit.ILGeneration.dll": {}
@@ -810,7 +836,7 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.0/_._": {}
+          "ref/netstandard1.0/System.Reflection.Primitives.dll": {}
         }
       },
       "System.Reflection.TypeExtensions/4.3.0": {
@@ -846,7 +872,7 @@
           "Microsoft.NETCore.Targets": "1.1.0"
         },
         "compile": {
-          "ref/netstandard1.5/_._": {}
+          "ref/netstandard1.5/System.Runtime.dll": {}
         }
       },
       "System.Runtime.Caching/4.5.0": {
@@ -1080,7 +1106,7 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.3/_._": {}
+          "ref/netstandard1.3/System.Text.Encoding.dll": {}
         }
       },
       "System.Text.Encoding.CodePages/4.5.0": {
@@ -1147,7 +1173,7 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.3/_._": {}
+          "ref/netstandard1.3/System.Threading.Tasks.dll": {}
         }
       },
       "System.Threading.Tasks.Extensions/4.3.0": {
@@ -1266,6 +1292,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "7.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.2"
         },
         "compile": {
@@ -1306,6 +1333,36 @@
     }
   },
   "libraries": {
+    "AutoMapper/9.0.0": {
+      "sha512": "xCqvoxT4HIrNY/xlXG9W+BA/awdrhWvMTKTK/igkGSRbhOhpl3Q8O8Gxlhzjc9JsYqE7sS6AxgyuUUvZ6R5/Bw==",
+      "type": "package",
+      "path": "automapper/9.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "automapper.9.0.0.nupkg.sha512",
+        "automapper.nuspec",
+        "lib/net461/AutoMapper.dll",
+        "lib/net461/AutoMapper.pdb",
+        "lib/net461/AutoMapper.xml",
+        "lib/netstandard2.0/AutoMapper.dll",
+        "lib/netstandard2.0/AutoMapper.pdb",
+        "lib/netstandard2.0/AutoMapper.xml"
+      ]
+    },
+    "AutoMapper.Extensions.Microsoft.DependencyInjection/7.0.0": {
+      "sha512": "szI4yeRIM7GWe9JyekW0dKYehPB0t6M+I55fPeCebN6PhS7zQZa0eG3bgOnOx+eP3caSNoE7KEJs2rk7MLsh8w==",
+      "type": "package",
+      "path": "automapper.extensions.microsoft.dependencyinjection/7.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
+        "automapper.extensions.microsoft.dependencyinjection.nuspec",
+        "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll",
+        "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.pdb"
+      ]
+    },
     "Microsoft.AspNetCore.Razor.Design/2.2.0": {
       "sha512": "VLWK+ZtMMNukY6XjxYHc7mz33vkquoEzQJHm/LCF5REVxIaexLr+UTImljRRJBdUDJluDAQwU+59IX0rFDfURA==",
       "type": "package",
@@ -2342,7 +2399,7 @@
       ]
     },
     "System.ComponentModel.TypeConverter/4.3.0": {
-      "sha512": "HZiP0DwTHJ+C+rdFqP47nBYUh5283kcwXIGY2zOVVhsJmVI/2tYiX2zNRdjRQRHsTox58Ydkec6h0pWSh8wAsw==",
+      "sha512": "16pQ6P+EdhcXzPiEK4kbA953Fu0MNG2ovxTZU81/qsCd1zPRsKc3uif5NgvllCY598k6bI0KUyKW8fanlfaDQg==",
       "type": "package",
       "path": "system.componentmodel.typeconverter/4.3.0",
       "files": [
@@ -3992,7 +4049,7 @@
       ]
     },
     "System.Runtime.Serialization.Primitives/4.3.0": {
-      "sha512": "Wz+0KOukJGAlXjtKr+5Xpuxf8+c8739RI1C+A2BoQZT+wMCCoMDDdO8/4IRHfaVINqL78GO8dW8G2lW/e45Mcw==",
+      "sha512": "2Z5t70a2SwMsfQDp9KOclaZNyQhfIga2gppq9lIUDM1A4ohTshn4JqT7ir8bvIhXgorWKYDAr6rPzEbi/nTGKg==",
       "type": "package",
       "path": "system.runtime.serialization.primitives/4.3.0",
       "files": [
@@ -4877,7 +4934,7 @@
       ]
     },
     "System.Xml.XmlSerializer/4.3.0": {
-      "sha512": "MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
+      "sha512": "VShQJhOxgD/5M2Z1IWm1vMaSqlbjo1zdFf8H7Ahte6bTvSUhUko/gDpAVVhGgGgTDeue4QyNg1fu1Zz2GKSEuQ==",
       "type": "package",
       "path": "system.xml.xmlserializer/4.3.0",
       "files": [
@@ -4971,23 +5028,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\david.williams1\\.nuget\\packages\\": {},
+    "C:\\Users\\dwill\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\Sandbox\\LegoCatalog\\legocatalog.dotnet.api\\legocatalog.api\\LegoCatalog.API.csproj",
+      "projectUniqueName": "F:\\Projects\\Sandbox\\LegoCatalog3\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.API\\LegoCatalog.API.csproj",
       "projectName": "LegoCatalog.API",
-      "projectPath": "C:\\Projects\\Sandbox\\LegoCatalog\\legocatalog.dotnet.api\\legocatalog.api\\LegoCatalog.API.csproj",
-      "packagesPath": "C:\\Users\\david.williams1\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\Sandbox\\LegoCatalog\\legocatalog.dotnet.api\\legocatalog.api\\obj\\",
+      "projectPath": "F:\\Projects\\Sandbox\\LegoCatalog3\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.API\\LegoCatalog.API.csproj",
+      "packagesPath": "C:\\Users\\dwill\\.nuget\\packages\\",
+      "outputPath": "F:\\Projects\\Sandbox\\LegoCatalog3\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\david.williams1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dwill\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5000,14 +5057,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Projects\\Sandbox\\LegoCatalog\\legocatalog.dotnet.api\\LegoCatalog.Data\\LegoCatalog.Data.csproj": {
-              "projectPath": "C:\\Projects\\Sandbox\\LegoCatalog\\legocatalog.dotnet.api\\LegoCatalog.Data\\LegoCatalog.Data.csproj"
+            "F:\\Projects\\Sandbox\\LegoCatalog3\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\LegoCatalog.Data.csproj": {
+              "projectPath": "F:\\Projects\\Sandbox\\LegoCatalog3\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Data\\LegoCatalog.Data.csproj"
             },
-            "C:\\Projects\\Sandbox\\LegoCatalog\\legocatalog.dotnet.api\\LegoCatalog.DTO\\LegoCatalog.DTO.csproj": {
-              "projectPath": "C:\\Projects\\Sandbox\\LegoCatalog\\legocatalog.dotnet.api\\LegoCatalog.DTO\\LegoCatalog.DTO.csproj"
+            "F:\\Projects\\Sandbox\\LegoCatalog3\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.DTO\\LegoCatalog.DTO.csproj": {
+              "projectPath": "F:\\Projects\\Sandbox\\LegoCatalog3\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.DTO\\LegoCatalog.DTO.csproj"
             },
-            "C:\\Projects\\Sandbox\\LegoCatalog\\legocatalog.dotnet.api\\LegoCatalog.Service\\LegoCatalog.Service.csproj": {
-              "projectPath": "C:\\Projects\\Sandbox\\LegoCatalog\\legocatalog.dotnet.api\\LegoCatalog.Service\\LegoCatalog.Service.csproj"
+            "F:\\Projects\\Sandbox\\LegoCatalog3\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Service\\LegoCatalog.Service.csproj": {
+              "projectPath": "F:\\Projects\\Sandbox\\LegoCatalog3\\LegoCatalog\\LegoCatalog.DotNet.API\\LegoCatalog.Service\\LegoCatalog.Service.csproj"
             }
           }
         }

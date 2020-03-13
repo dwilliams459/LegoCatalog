@@ -20,7 +20,7 @@
         <div class="lego-item-detail">
           <table>
             <tr>
-              <td class="image" (click)='openDetailsDialog(part)'><img src='{{part.iconLink}}' /></td>
+              <td class="image" style="vertical-align: top;" (click)='openDetailsDialog(part)'><img src='{{part.iconLink}}' /></td>
               <td class="detail" style="vertical-align: top;">
                 <div class="discription" (click)='openDetailsDialog(part)'>
                   {{part.itemName}}
@@ -29,7 +29,8 @@
                   <label>Item ID: </label>{{ part.itemId }}
                 </div>
                 <div class="itemId">
-                  <label>Quantity: </label>{{ part.quantity }} 
+                  <label>Colors: </label>{{ part.colorCount }}
+                  <label style="margin-left:10px;">Quantity: </label>{{ part.quantity }} 
                   <button mat-icon-button aria-label="Example icon-button with a heart icon">-</button>
                   <button mat-icon-button color="primary" aria-label="Example icon-button with a heart icon">+</button>
                 </div>

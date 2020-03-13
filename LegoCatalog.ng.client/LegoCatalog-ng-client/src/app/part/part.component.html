@@ -10,15 +10,14 @@
   </div>
   <div style="clear:both;"></div>
   <mat-card-content>
-    <div><label>Item Type: </label>{{ part.itemType }}</div>
+    <div><label>Item Type: </label>{{ part.itemTypeName }}</div>
     <div><label>Part Id: </label>{{ part.partId }}</div>
-    <div><label>Item Type: </label>{{ part.itemType }}</div>
-    <div><label>Category: </label>{{ part.category }}</div>
     <div><label>Category Name: </label>{{ part.categoryName }}</div>
-    <div><label>Weight: </label>{{ part.weight }}</div>
-    <div><label>Dimension X: </label>{{ part.dimensionX }}</div>
-    <div><label>Dimension Y: </label>{{ part.dimensionY }}</div>
-    <div><label>Dimension Z: </label>{{ part.dimensionZ }}</div>
+    <!-- <div><label>Category: </label>{{ part.categoryId }}</div> -->
+    <div><label>Weight: </label>{{ part.itemWeight }}</div>
+    <div><label>Dimension X: </label>{{ part.itemDimensionX }}</div>
+    <div><label>Dimension Y: </label>{{ part.itemDimensionY }}</div>
+    <div><label>Dimension Z: </label>{{ part.itemDimensionZ }}</div>
     <div><label>Image: </label></div>
     <div><img src="{{ part.imageLink }}" style="max-height:150px;" /></div>
   </mat-card-content>

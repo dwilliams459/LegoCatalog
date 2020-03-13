@@ -1,25 +1,20 @@
 using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using LegoCatalog.Data;
 
-namespace LegoCatalog.Data 
+namespace LegoCatalog.DTO
 {
-    [Table("PartsCatalog")]
-    public class Part 
+    public class PartDTO 
     {
         public int PartId { get; set; }
 
-        [Key]
         public string ItemId { get; set; }
         public string ItemName { get; set; }
         
         public string ItemTypeId { get; set; }
-        [ForeignKey("ItemTypeId")]
-        public ItemType ItemType { get; set; }
+        public string ItemTypeName { get; set; }
 
         public int CategoryId { get; set; }
-        [ForeignKey("CategoryId")]
-        public Category Category { get; set; }
+        public string CategoryName { get; set; }
         
         public decimal? ItemWeight { get; set; }
         public decimal? ItemDimensionX { get; set; }
@@ -27,10 +22,8 @@ namespace LegoCatalog.Data
         public decimal? ItemDimensionZ { get; set; }
         public string ImageLink { get; set; }
         public string IconLink { get; set; }
+        public int ColorCount { get; set; }
 
-        [NotMapped]
         public int Quantity { get; set; }
-        [NotMapped]
-        public int ColorQuantity { get; set; }
     }
 }

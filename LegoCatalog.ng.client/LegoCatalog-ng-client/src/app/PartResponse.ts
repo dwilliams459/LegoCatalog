@@ -1,28 +1,30 @@
-export class PartResponse {
-    partId: number;
-    itemId: string;
-    itemTypeId: string | null;
-    itemType: ItemType;
-    itemName: string;
-    categoryId: number;
-    category: Category;
-    itemWeight: number | null;
-    dimensionX: number | null;
-    dimensionY: number | null;
-    dimensionZ: number | null;
-    imageLink: string | null;
-    iconLink: string | null;
-}
+// export class PartResponse {
+//     partId: number;
+//     itemId: string;
+//     itemName: string;
+//     itemTypeId: string | null;
+//     itemTypeName: string;
+//     categoryId: number;
+//     categoryName: string;
+//     itemWeight: number | null;
+//     itemDimensionX: number | null;
+//     itemDimensionY: number | null;
+//     itemDimensionZ: number | null;
+//     imageLink: string | null;
+//     iconLink: string | null;
+//     colorCount: number | null;
+//     quantity: number | null;
+// }
 
-export class ItemType 
-{
-    itemTypeId: string;
-    itemTypeName: string
-}
+// export class ItemType 
+// {
+//     itemTypeId: string;
+//     itemTypeName: string
+// }
 
-export class Category 
-{
-    categoryId: number;
-    name: string;
-    subCategory: string
-}
+// export class Category 
+// {
+//     categoryId: number;
+//     name: string;
+//     subCategory: string
+// }

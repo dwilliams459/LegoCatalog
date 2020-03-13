@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http.Extensions;
 using System.IO;
 using LegoCatalog.Service;
+using LegoCatalog.DTO;
 
 namespace LegoCatalog.API.Controllers
 {
@@ -63,11 +64,11 @@ namespace LegoCatalog.API.Controllers
 
         [HttpPost]
         [Route("search")]
-        public async Task<List<Part>> Search(PartSearchCriteria searchCriteria = null)
+        public async Task<List<PartDTO>> Search(PartSearchCriteria searchCriteria = null)
         {
-            List<Part> parts = await _partService.FindParts(searchCriteria);
+            List<PartDTO> parts = await _partService.Search(searchCriteria);
 
-            return (parts == null) ? new List<Part>() : parts;
+            return (parts == null) ? new List<PartDTO>() : parts;
         }
 
     }

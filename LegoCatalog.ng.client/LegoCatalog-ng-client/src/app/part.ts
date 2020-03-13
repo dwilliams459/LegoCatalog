@@ -1,15 +1,17 @@
 export class Part {
   partId: number;
   itemId: string;
-  itemType: string;
   itemName: string;
-  category: number | null;
+  itemTypeId: string;
+  itemTypeName: string;
+  categoryId: number | null;
   categoryName: string | null;
-  weight: number | null;
-  dimensionX: number | null;
-  dimensionY: number | null;
-  dimensionZ: number | null;
+  itemWeight: number | null;
+  itemDimensionX: number | null;
+  itemDimensionY: number | null;
+  itemDimensionZ: number | null;
   imageLink: string | null;
   iconLink: string | null;
   quantity: number | null;
+  colorCount: number | null;
 }

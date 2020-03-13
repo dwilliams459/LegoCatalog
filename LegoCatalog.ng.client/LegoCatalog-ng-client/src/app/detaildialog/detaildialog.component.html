@@ -14,17 +14,15 @@
       <mat-card>
         <div style="min-width:200px;">
           <mat-card-content>
-            <div><label>Item Type: </label>{{ part.itemType }}</div>
+            <div><label>Item Type: </label>{{ part.itemTypeName }}</div>
+            <div><label>Item Type Id: </label>{{ part.itemTypeId }}</div>
             <div><label>Part Id: </label>{{ part.partId }}</div>
-            <div><label>Item Type: </label>{{ part.itemType }}</div>
-            <div><label>Category: </label>{{ part.category }}</div>
+            <!-- <div><label>Category: </label>{{ part.categoryId }}</div> -->
             <div><label>Category Name: </label>{{ part.categoryName }}</div>
-            <div><label>Image: </label></div>
-            <div><label>Category Name: </label>{{ part.categoryName }}</div>
-            <div><label>Weight: </label>{{ part.weight }}</div>
-            <div><label>Dimension X: </label>{{ part.dimensionX }}</div>
-            <div><label>Dimension Y: </label>{{ part.dimensionY }}</div>
-            <div><label>Dimension Z: </label>{{ part.dimensionZ }}</div>
+            <div><label>Weight: </label>{{ part.itemWeight }}</div>
+            <div><label>Dimension X: </label>{{ part.itemDimensionX }}</div>
+            <div><label>Dimension Y: </label>{{ part.itemDimensionY }}</div>
+            <div><label>Dimension Z: </label>{{ part.itemDimensionZ }}</div>
           </mat-card-content>
         </div>
       </mat-card>
@@ -34,8 +32,8 @@
       <mat-card>
         <div style="min-width:150px;">
           <mat-card-content>
-            <div><label>Quantity: </label>{{ part.itemType }}</div>
-            <div><label>Colors: </label></div>
+            <div><label>Quantity: </label>{{ part.quantity }}</div>
+            <div><label>Colors: </label>{{ part.colorCount }} </div>
           </mat-card-content>
         </div>
       </mat-card>

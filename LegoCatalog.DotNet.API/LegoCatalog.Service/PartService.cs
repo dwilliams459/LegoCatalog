@@ -1,4 +1,5 @@
 ﻿using LegoCatalog.Data;
+using LegoCatalog.DTO;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,7 @@ namespace LegoCatalog.Service
             return filterBuilder.ToString();
         }
 
-        public async Task<List<Part>> FindParts(PartSearchCriteria searchCriteria)
+        private async Task<List<Part>> FindParts(PartSearchCriteria searchCriteria)
         {
             //var filter = BuildFilter(searchCriteria);
             var partQuery = (_context.Parts.Include(p => p.Category).Include(p => p.ItemType)).Where(p => true);
@@ -77,6 +78,37 @@ namespace LegoCatalog.Service
             }
 
             return parts;
+        }
+
+        public async Task<List<PartDTO>> Search(PartSearchCriteria searchCriteria)
+        {
+            var partList = await this.FindParts(searchCriteria);
+            var partListDTO = new List<PartDTO>();
+
+            foreach (var p in partList)
+            {
+                var partDto = new PartDTO
+                {
+                    PartId = p.PartId,
+                    ItemId = p.ItemId,
+                    ItemName = p.ItemName,
+                    CategoryId = p.CategoryId,
+                    IconLink = p.IconLink,
+                    ImageLink = p.ImageLink,
+                    ItemDimensionX = p.ItemDimensionX,
+                    ItemDimensionY = p.ItemDimensionY,
+                    ItemDimensionZ = p.ItemDimensionZ,
+                    ItemTypeId = p.ItemTypeId,
+                    ItemTypeName = p.ItemType.ItemTypeName,
+                    CategoryName = p.Category.Name
+                };
+
+                var i = _context.PartColors.FirstOrDefault();
+                partDto.ColorCount = await _context.PartColors.CountAsync(pc => pc.ItemId == p.ItemId);
+                partListDTO.Add(partDto);
+            }
+
+            return partListDTO;
         }
     }
 }

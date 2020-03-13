@@ -3,7 +3,7 @@ import { Part } from '../part';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { PartSearchCriteria } from '../partSearchCriteria';
 import { ApiService } from '../api.service';
-import { PartResponse } from '../PartResponse';
+//import { PartResponse } from '../PartResponse';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { $ } from 'protractor';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
@@ -88,14 +88,13 @@ export class PartlistComponent implements OnInit {
 
     this.partService.getParts(partSearch).then((response: any) => {
       console.log('Response', response);
-      const partlistResponse = response as PartResponse[];
+      this.legoParts = (response as Part[]);
 
-      this.legoParts = [];
-
-      partlistResponse.forEach(pr => {
-        const part = this.partService.mapPartResponse(pr);
-        this.legoParts.push(part);
-      });
+      //const partlistResponse = response as Part[];
+      // partlistResponse.forEach(pr => {
+      //   const part = this.partService.mapPartResponse(pr);
+      //   this.legoParts.push(part);
+      // });
     });
   }
 }

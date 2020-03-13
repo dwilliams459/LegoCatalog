@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using LegoCatalog.Data;
 using LegoCatalog.Service;
+using AutoMapper;
 
 namespace LegoCatalog.API
 {
