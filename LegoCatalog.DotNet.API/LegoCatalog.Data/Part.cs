@@ -27,9 +27,8 @@ namespace LegoCatalog.Data
         public decimal? ItemDimensionZ { get; set; }
         public string ImageLink { get; set; }
         public string IconLink { get; set; }
-
-        [NotMapped]
         public int Quantity { get; set; }
+
         [NotMapped]
         public int ColorQuantity { get; set; }
     }

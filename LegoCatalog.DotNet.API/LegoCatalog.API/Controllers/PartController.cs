@@ -71,5 +71,19 @@ namespace LegoCatalog.API.Controllers
             return (parts == null) ? new List<PartDTO>() : parts;
         }
 
+        [HttpGet]
+        [Route("addRemoveQuantity")]
+        public async Task<int> UpdateQuantity(int partId, int newQuantity, string colorId = "")
+        {
+            try
+            {
+                return await _partService.UpdateQuantity(partId, newQuantity, colorId);
+            }
+            catch (Exception ex)
+            {
+                Response.StatusCode = 500;
+                return 0;
+            }
+        }
     }
 }
