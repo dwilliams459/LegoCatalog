@@ -3,6 +3,7 @@ export class PartSearchCriteria {
     itemId: string;
     itemName: string;
     categoryName: string;
+    colorOnly: boolean;
     pageSize: number;
     page: number;
 }

@@ -100,7 +100,8 @@ namespace LegoCatalog.Service
                     ItemDimensionZ = p.ItemDimensionZ,
                     ItemTypeId = p.ItemTypeId,
                     ItemTypeName = p.ItemType.ItemTypeName,
-                    CategoryName = p.Category.Name
+                    CategoryName = p.Category.Name,
+                    Quantity = p.Quantity
                 };
 
                 var i = _context.PartColors.FirstOrDefault();
@@ -109,6 +110,15 @@ namespace LegoCatalog.Service
             }
 
             return partListDTO;
+        }
+        
+        public async Task<int> UpdateQuantity(int partId, int newValue, string colorId = "")
+        {
+            var part = await _context.Parts.FirstOrDefaultAsync(p => p.PartId == partId);
+            part.Quantity = newValue;
+            await _context.SaveChangesAsync();
+            
+            return part.Quantity;
         }
     }
 }

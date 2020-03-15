@@ -75,3 +75,23 @@
 mat-form-field {
   margin-right: 16px;
 }
+
+.QuantityInput
+{
+  width: 21px;
+  margin-right: 8px;
+  padding-left:5px;
+}
+
+.QuantityButton
+{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  margin-right: 4px;
+  display: inline-block;
+  font-size: 16px;
+}
