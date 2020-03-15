@@ -1,0 +1,10 @@
+.fullImage {
+  margin: 6px;
+}
+
+@media only screen and (max-width: 600px)
+{
+  .fullImage {
+    max-width: 90%;
+  }
+}

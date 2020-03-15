@@ -1,0 +1,97 @@
+.parts {
+  display: block;
+  position:relative;
+  padding-inline-start: 0px;
+}
+.lego-item{
+  box-sizing: border-box;
+  display:block;
+  color: rgb(33, 37, 41);
+  margin: 6px 6px 6px 6px;
+  float:left;
+  width: 45%;
+  min-width:400px;
+  padding-inline-start:1px;
+  box-shadow: 0px 2px 5px rgb(221, 221, 221);
+}
+
+.lego-item-detail {
+  background-color: white;
+  border: rgb(204,204,204) solid 1px;
+  box-sizing: border-box;
+  color: rgb(33, 37, 41);
+  display:block;
+  left:0px;
+  padding: 7px;
+  border-radius: 8px;
+  min-height: 120px;
+}
+
+.badge {
+  text-align: left;
+  font-size: 14pt;
+}
+.image {
+  width:80px;
+  height:80px;
+  margin: 2px 0px 0px 2px;
+  text-align: center;
+}
+
+.image img {
+  max-width:80px;
+  max-height:80px;
+  background-color:#dbdbdb;
+}
+.detail {
+  vertical-align: top;
+  padding-left:10px;
+}
+.discription {
+  font-size:16px;
+  font-weight:600;
+}
+
+.itemId {
+  font-size:14px;
+  margin-top:2px;
+  font-weight:400px;
+}
+
+.clear-fix {
+  clear:both;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+mat-form-field {
+  margin-right: 16px;
+}
+
+.QuantityInput
+{
+  width: 21px;
+  margin-right: 8px;
+  padding-left:5px;
+}
+
+.QuantityButton
+{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  margin-right: 4px;
+  display: inline-block;
+  font-size: 16px;
+}

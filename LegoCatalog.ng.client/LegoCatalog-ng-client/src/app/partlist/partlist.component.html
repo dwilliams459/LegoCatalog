@@ -1,0 +1,52 @@
+<mat-card class="pagecontainer">
+  <mat-card-title>Page List</mat-card-title>
+  <div style="clear:both;"></div>
+  <div>
+    <mat-form-field class="" style="width: 20%; min-width:300px;">
+      <mat-label>Part Id</mat-label>
+      <input #txtItemId matInput placeholder="" (keyup)="search(txtItemId.value, txtPartName.value, boolShowOnlyWColors.value)" />
+    </mat-form-field>
+    <mat-form-field class="" style="width: 20%; min-width:300px;">
+      <mat-label>Part Name</mat-label>
+      <input #txtPartName matInput placeholder="" (keyup)="search(txtItemId.value, txtPartName.value, boolShowOnlyWColors.value)" />
+    </mat-form-field>
+    <mat-form-field class="" style="width: 20%; min-width:300px;">
+      <mat-label>Show those without colors</mat-label>
+      <input #boolShowOnlyWColors type="checkbox" (change)="search(txtItemId.value, txtPartName.value, boolShowOnlyWColors.value)" />
+    </mat-form-field>
+    <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" [pageIndex]="pageIndex"
+      (page)="pageEvent = pageChanged(txtItemId.value, txtPartName.value, $event)"> 
+    </mat-paginator>
+  </div>
+  <mat-card class="container" fxLayoutWrap fxlayoutAlign="">
+    <ul class="parts">
+      <li *ngFor="let part of legoParts" class="lego-item" >
+        <div class="lego-item-detail">
+          <table>
+            <tr>
+              <td class="image" style="vertical-align: top;" (click)='openDetailsDialog(part)'><img src='{{part.iconLink}}' /></td>
+              <td class="detail" style="vertical-align: top;">
+                <div class="discription" (click)='openDetailsDialog(part)'>
+                  {{part.itemName}}
+                </div>
+                <div class="itemId" (click)='openDetailsDialog(part)'>
+                  <label>Item ID: </label>{{ part.itemId }}
+                </div>
+                <div class="itemId">
+                  <label>Colors: </label>{{ part.colorCount }}
+                  <label style="margin-left:10px;">Quantity: </label><input #txtPieceQuantity placehoder="" class="QuantityInput" value="{{ part.quantity }}" />
+                  <button id=btnAddQuantity class="QuantityButton" aria-label="Remove from quantity" (click)="decrementQuantity(part)">-</button>
+                  <button id=btnRemoveQuantity class="QuantityButton" aria-label="Add to quantity" (click)="incrementQuantity(part)">+</button>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="clear-fix"></div>
+      </li>
+    </ul>
+    <div style="clear:both;"></div>
+  </mat-card>
+
+
+</mat-card>
