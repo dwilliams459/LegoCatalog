@@ -22,6 +22,8 @@ speed-measure-plugin*.json
 *.launch
 .settings/
 *.sublime-workspace
+*.dll
+*.cache
 
 # IDE - VSCode
 .vscode/*
@@ -405,3 +407,5 @@ MigrationBackup/
 LegoCatalog.DotNet.API/LegoCatalog.API/obj/Debug/netcoreapp3.1/LegoCatalog.API.assets.cache
 LegoCatalog.DotNet.API/LegoCatalog.API/obj/Debug/netcoreapp3.1/LegoCatalog.API.csprojAssemblyReference.cache
 *.cache
+LegoCatalog.DotNet.API/LegoCatalog.API/obj/Debug/netcoreapp3.1/LegoCatalog.API.assets.cache
+LegoCatalog.DotNet.API/LegoCatalog.API/obj/Debug/netcoreapp3.1/LegoCatalog.API.csprojAssemblyReference.cache

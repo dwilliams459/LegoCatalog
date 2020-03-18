@@ -11,9 +11,9 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "LegoCatalog.Database", "Leg
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LegoCatalog.ImageResize", "LegoCatalog.ImageResize\LegoCatalog.ImageResize.csproj", "{7D6ED755-D19E-4ABB-A321-D173A45D913C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegoCatalog.Service", "LegoCatalog.Service\LegoCatalog.Service.csproj", "{A0061450-D9E0-4233-A693-65165B457013}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LegoCatalog.Service", "LegoCatalog.Service\LegoCatalog.Service.csproj", "{A0061450-D9E0-4233-A693-65165B457013}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegoCatalog.DTO", "LegoCatalog.DTO\LegoCatalog.DTO.csproj", "{FBD3C648-2B72-4FC1-A38A-9D5239A7A66A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LegoCatalog.DTO", "LegoCatalog.DTO\LegoCatalog.DTO.csproj", "{FBD3C648-2B72-4FC1-A38A-9D5239A7A66A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
