@@ -1,12 +1,11 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpParams } from "@angular/common/http";
-import { environment } from "src/environments/environment";
-//import { PartResponse } from './PartResponse';
-import { Part } from "./part";
-import { PartSearchCriteria } from "./partSearchCriteria";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { Part } from './part';
+import { PartSearchCriteria } from './partSearchCriteria';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class ApiService {
   constructor(private httpClient: HttpClient) {}
@@ -45,10 +44,24 @@ export class ApiService {
       .toPromise();
   }
 
+  getCategories() {
+    return this.jsonRequest(
+      'GET',
+      `${environment.serverUrl}/part/categories`
+    );
+  }
+
   setQuantity(part: Part, newQuantity: number) {
     const url = `${environment.serverUrl}/part/addRemoveQuantity?partId=${part.partId}&newquantity=${newQuantity}`;
     console.log(`Set Quantity to ${newQuantity}: ${url}`);
 
     this.jsonRequest( 'GET', url );
+  }
+
+  getPartColors(itemId: string) {
+    return this.jsonRequest(
+      'GET',
+      `${environment.serverUrl}/part/partColors/${itemId}`
+    );
   }
 }

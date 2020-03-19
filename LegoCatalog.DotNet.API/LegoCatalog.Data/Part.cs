@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -20,6 +21,8 @@ namespace LegoCatalog.Data
         public int CategoryId { get; set; }
         [ForeignKey("CategoryId")]
         public Category Category { get; set; }
+
+        public List<PartColor> PartColors { get; set; }
         
         public decimal? ItemWeight { get; set; }
         public decimal? ItemDimensionX { get; set; }

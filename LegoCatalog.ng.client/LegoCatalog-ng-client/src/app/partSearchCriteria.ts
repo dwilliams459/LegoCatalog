@@ -4,6 +4,7 @@ export class PartSearchCriteria {
     itemName: string;
     categoryName: string;
     colorOnly: boolean;
+    displayColors: boolean;
     pageSize: number;
     page: number;
 }

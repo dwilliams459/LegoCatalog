@@ -1,3 +1,5 @@
+import { PartColor } from './partColor';
+
 export class Part {
   partId: number;
   itemId: string;
@@ -14,4 +16,5 @@ export class Part {
   iconLink: string | null;
   quantity: number | null;
   colorCount: number | null;
+  partColors: PartColor[] | null;
 }

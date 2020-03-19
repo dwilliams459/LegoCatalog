@@ -40,7 +40,11 @@ namespace LegoCatalog.Service
         private async Task<List<Part>> FindParts(PartSearchCriteria searchCriteria)
         {
             //var filter = BuildFilter(searchCriteria);
-            var partQuery = (_context.Parts.Include(p => p.Category).Include(p => p.ItemType)).Where(p => true);
+            var partQuery = (_context.Parts
+                    .Include(p => p.Category)
+                    .Include(p => p.ItemType)
+                    .Include(p => p.PartColors))
+                    .Where(p => true);
 
             // partQuery = partQuery.Where("asdf");
             // partQuery = partQuery.Where(p =>
@@ -63,6 +67,10 @@ namespace LegoCatalog.Service
             }
             if (searchCriteria.CategoryName != null && searchCriteria.CategoryName.Length > 0)
                 partQuery = partQuery.Where(p => p.Category.Name.Contains(searchCriteria.CategoryName));
+            if (searchCriteria.ColorOnly) 
+            {
+                partQuery = partQuery.Where(p => p.PartColors != null && p.PartColors.Count > 0);
+            }
 
             //partQuery = partQuery.Where(p => !string.IsNullOrWhiteSpace(p.IconLink) && p.IconLink != "error");
 
@@ -74,7 +82,8 @@ namespace LegoCatalog.Service
 
             foreach (var p in parts)
             {
-                p.IconLink = $"http://localhost:5000/image/{p.IconLink}";
+                p.ColorQuantity = p.PartColors.Select(pc => pc.Color).Distinct().Count();
+                p.IconLink = $"http://localhost:5000/image/{p.IconLink}";               
             }
 
             return parts;
@@ -101,11 +110,12 @@ namespace LegoCatalog.Service
                     ItemTypeId = p.ItemTypeId,
                     ItemTypeName = p.ItemType.ItemTypeName,
                     CategoryName = p.Category.Name,
-                    Quantity = p.Quantity
+                    Quantity = p.Quantity,
+                    ColorCount = p.ColorQuantity
                 };
 
-                var i = _context.PartColors.FirstOrDefault();
-                partDto.ColorCount = await _context.PartColors.CountAsync(pc => pc.ItemId == p.ItemId);
+                partDto.PartColors = await PartColors(p.ItemId);
+                
                 partListDTO.Add(partDto);
             }
 
@@ -119,6 +129,29 @@ namespace LegoCatalog.Service
             await _context.SaveChangesAsync();
             
             return part.Quantity;
+        }
+
+        public async Task<List<PartColorDTO>> PartColors(string itemId)
+        {
+            var colorQuery = from partColor in _context.PartColors
+                         join color in _context.Colors on partColor.Color equals color.ColorName
+                         where partColor.ItemId == itemId
+                         orderby partColor.CodeName
+                         select new PartColorDTO { ItemId = itemId, RGB = color.RGB, Type = color.Type, Color = color.ColorName };
+
+            var colors = await colorQuery.Distinct().ToListAsync();
+
+            return colors;
+        }
+
+        public async Task<List<string>> Categories() 
+        {
+            List<string> categories = await _context.Parts.Include(p => p.Category)
+                                            .Select(p => p.Category.Name )
+                                            .Distinct()
+                                            .ToListAsync();
+            categories.Sort();
+            return categories;
         }
     }
 }

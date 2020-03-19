@@ -1,31 +1,38 @@
-import { Component, OnInit } from "@angular/core";
-import { Part } from "../part";
-import { FormBuilder, FormGroup } from "@angular/forms";
-import { PartSearchCriteria } from "../partSearchCriteria";
-import { ApiService } from "../api.service";
-//import { PartResponse } from '../PartResponse';
-import { FlexLayoutModule } from "@angular/flex-layout";
-import { $ } from "protractor";
-import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
-import { MatCheckbox } from "@angular/material/checkbox"
-import { DetailDialogComponent } from "../detaildialog/detaildialog.component";
-import { PageEvent } from "@angular/material/paginator";
+import { Component, OnInit } from '@angular/core';
+import { Part } from '../part';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { PartSearchCriteria } from '../partSearchCriteria';
+import { ApiService } from '../api.service';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { $ } from 'protractor';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatCheckbox } from '@angular/material/checkbox';
+import { DetailDialogComponent } from '../detaildialog/detaildialog.component';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
-  selector: "app-partlist",
-  templateUrl: "./partlist.component.html",
-  styleUrls: ["./partlist.component.css"]
+  selector: 'app-partlist',
+  templateUrl: './partlist.component.html',
+  styleUrls: ['./partlist.component.css']
 })
 export class PartlistComponent implements OnInit {
   legoParts: Part[] = [];
+
+  categories: string[] = [];
+
   part: Part;
 
   form: FormGroup;
-  searchPartName: string;
   pageIndex = 0;
-  length = 100;
+  length = 1000;
   pageSize = 10;
-  pageSizeOptions: number[] = [5, 10, 25, 100];
+  pageSizeOptions: number[] = [6, 10, 36, 100];
+
+  searchPartName: string;
+  displayColors = false;
+  searchItemId: string;
+  showOnlyColors = false;
+  category: string;
 
   // MatPaginator Output
   pageEvent: PageEvent;
@@ -39,21 +46,25 @@ export class PartlistComponent implements OnInit {
   ngOnInit() {
     this.form = this.fb.group({});
     this.search();
+    this.partService.getCategories().then((response: any) => {
+      this.categories = response as string[];
+    });
   }
+
   setPageSizeOptions(setPageSizeOptionsInput: string) {
     if (setPageSizeOptionsInput) {
       this.pageSizeOptions = setPageSizeOptionsInput
-        .split(",")
+        .split(',')
         .map(str => +str);
     }
   }
 
-  pageChanged(itemId: string, itemName: string, pageEvent?: PageEvent) {
+  pageChanged(pageEvent?: PageEvent) {
     this.pageIndex = pageEvent.pageIndex;
     this.pageSize = pageEvent.pageSize;
     this.length = pageEvent.length;
 
-    this.search(itemId, itemName);
+    this.search();
 
     return pageEvent;
   }
@@ -61,7 +72,7 @@ export class PartlistComponent implements OnInit {
   openDetailsDialog(part: Part) {
     const dialogConfig = new MatDialogConfig();
 
-    console.log("openDetailsDialog: " + part);
+    console.log('openDetailsDialog: ' + part);
     dialogConfig.autoFocus = true;
     dialogConfig.minHeight = 400;
     dialogConfig.data = {
@@ -75,14 +86,19 @@ export class PartlistComponent implements OnInit {
 
     dialogRef
       .afterClosed()
-      .subscribe(data => console.log("Dialog output:", data));
+      .subscribe(data => console.log('Dialog output:', data));
   }
   displayPartDialog(itemId: string) {
-    console.log("display item id:" + itemId);
+    console.log('display item id:' + itemId);
   }
 
   incrementQuantity(part: Part) {
     part.quantity++;
+    this.partService.setQuantity(part, part.quantity);
+  }
+
+  setQuantity(part: Part, quantity?: number) {
+    part.quantity = quantity;
     this.partService.setQuantity(part, part.quantity);
   }
 
@@ -91,26 +107,23 @@ export class PartlistComponent implements OnInit {
     this.partService.setQuantity(part, part.quantity);
   }
 
-  search(itemName: string = '', partName: string = '', colorOnly: string = 'false') {
+  search(itemName: string = '', partName: string = '', colorOnly: boolean = false, category: string = '') {
+    console.log('colorOnly: ' + colorOnly);
+
     const partSearch: PartSearchCriteria = {
       partId: 0,
-      itemId: itemName,
-      itemName: partName,
-      categoryName: '',
-      colorOnly: colorOnly === 'checked',
+      itemId: this.searchItemId,
+      itemName: this.searchPartName,
+      categoryName: this.category,
+      colorOnly: this.showOnlyColors,
+      displayColors: this.displayColors,
       page: this.pageIndex,
       pageSize: this.pageSize
     };
 
     this.partService.getParts(partSearch).then((response: any) => {
-      console.log("Response", response);
+      console.log('Response', response);
       this.legoParts = response as Part[];
-
-      //const partlistResponse = response as Part[];
-      // partlistResponse.forEach(pr => {
-      //   const part = this.partService.mapPartResponse(pr);
-      //   this.legoParts.push(part);
-      // });
     });
   }
 }

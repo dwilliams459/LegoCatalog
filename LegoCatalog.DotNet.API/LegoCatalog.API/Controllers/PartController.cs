@@ -79,10 +79,41 @@ namespace LegoCatalog.API.Controllers
             {
                 return await _partService.UpdateQuantity(partId, newQuantity, colorId);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Response.StatusCode = 500;
                 return 0;
+            }
+        }
+
+        [HttpGet]
+        [Route("partcolors/{itemId}")]
+        public async Task<List<PartColorDTO>> PartColors(string itemId)
+        {
+            try
+            {
+                return await _partService.PartColors(itemId);
+            }
+            catch (System.Exception)
+            {
+                Response.StatusCode = 500;
+                return new List<PartColorDTO>();
+            }
+        }
+
+        [HttpGet]
+        [Route("categories")]
+        public async Task<List<string>> Categories()
+        {
+            try
+            {
+                var categories = await _partService.Categories();
+                return categories;
+            }
+            catch (Exception)
+            {
+                Response.StatusCode = 500;
+                return new List<string>();
             }
         }
     }

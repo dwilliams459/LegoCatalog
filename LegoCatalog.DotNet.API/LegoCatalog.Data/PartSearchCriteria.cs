@@ -8,6 +8,7 @@ namespace LegoCatalog.Data
         public string ItemId { get; set; }
         public string ItemName { get; set; }
         public bool ColorOnly { get; set; }
+        public bool DisplayColors { get; set; }
         public string CategoryName { get; set; }
     }
 }

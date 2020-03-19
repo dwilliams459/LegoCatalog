@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using LegoCatalog.Data;
 
 namespace LegoCatalog.DTO
@@ -23,6 +24,8 @@ namespace LegoCatalog.DTO
         public string ImageLink { get; set; }
         public string IconLink { get; set; }
         public int ColorCount { get; set; }
+
+        public List<PartColorDTO> PartColors { get; set; } 
 
         public int Quantity { get; set; }
     }

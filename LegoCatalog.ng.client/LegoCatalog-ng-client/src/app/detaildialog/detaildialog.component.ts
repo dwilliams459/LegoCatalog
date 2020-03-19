@@ -2,6 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Part } from '../part';
+import { PartColor } from '../partColor';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-detaildialog',
@@ -9,12 +11,14 @@ import { Part } from '../part';
   styleUrls: ['./detaildialog.component.css']
 })
 export class DetailDialogComponent implements OnInit {
+  partColors: PartColor[] = [];
   form: FormGroup;
   description: string;
   part: Part;
 
   constructor(
     private fb: FormBuilder,
+    private partService: ApiService,
     private dialogRef: MatDialogRef<DetailDialogComponent>,
     @Inject(MAT_DIALOG_DATA) data
   ) {
@@ -26,6 +30,11 @@ export class DetailDialogComponent implements OnInit {
       itemName: [this.part.itemName, []],
       imageLink: this.part.imageLink,
       itemId: this.part.itemId
+    });
+
+    this.partService.getPartColors(this.part.itemId).then((response: any) => {
+      console.log(response);
+      this.partColors = response as PartColor[];
     });
   }
 
