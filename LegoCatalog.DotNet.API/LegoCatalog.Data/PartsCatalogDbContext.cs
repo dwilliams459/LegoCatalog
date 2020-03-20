@@ -10,6 +10,7 @@ namespace LegoCatalog.Data
         public DbSet<ItemType> ItemTypes { get; set; }
         public DbSet<Part> Parts { get; set; }
         public DbSet<PartColor> PartColors { get; set; }
+        public DbSet<InventoryPart> InventoryParts { get; set; }
 
         public DbSet<Event> Events { get; set; }
 

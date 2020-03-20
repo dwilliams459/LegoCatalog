@@ -46,9 +46,9 @@ namespace LegoCatalog.ImageResize
                     imageResizer.ResizeSetOfLegoImages(100);
                 }
 
-                Thread.Sleep(5000);
+                Thread.Sleep(10000);
             }
-            while (i <= 2);
+            while (i <= 600);
 
             Console.WriteLine($"Exited after {i} iterations");
 

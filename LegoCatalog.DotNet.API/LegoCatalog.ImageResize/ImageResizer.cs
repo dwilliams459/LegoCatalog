@@ -19,21 +19,26 @@ namespace LegoCatalog.ImageResize
     public class ImageResize
     {
         private PartsCatalogDbContext db;
-        private const string LegoCatalogConnectionString = @"Server=localhost;Database=LegoCatalog;Trusted_Connection=True;";
+        private IConfigurationRoot _config;
+        private const string LegoCatalogConnectionString = @"Server=gryffindor\\sqlexpress;Database=LegoCatalog;Trusted_Connection=True;";
 
         public ImageResize()
         {
+            _config = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", true, true)
+                .Build();
 
             //Program._config
 
             var contextBuilder = new DbContextOptionsBuilder<PartsCatalogDbContext>();
-            contextBuilder.UseSqlServer(LegoCatalogConnectionString);
+            contextBuilder.UseSqlServer(_config["ConnectionStrings:LegoCatalogDatabase"]);
             db = new PartsCatalogDbContext(contextBuilder.Options);
         }
 
         public void ResizeSetOfLegoImages(int totalImagesToConvert = 100)
         {
-            string LegoImagesWriteLocation = "c:\\LegoCatalog\\ImagesJpeg";
+            //string LegoImagesWriteLocation = "c:\\LegoCatalog\\ImagesJpeg";
+            string LegoImagesWriteLocation = "f:\\LegoCatalog\\ImagesJpeg";
 
             int i = 1;
             foreach (var part in db.Parts.Where(p => string.IsNullOrWhiteSpace(p.IconLinkJpeg)).Take(totalImagesToConvert).OrderBy(p => p.ItemId).ToList())
