@@ -11,6 +11,7 @@
     [ImageLink]      NVARCHAR (500)  NULL,
     [IconLink]       NVARCHAR (500)  NULL,
     [Quantity] INT NOT NULL DEFAULT 0, 
+    [IconLinkJpeg] NVARCHAR(255) NULL, 
     CONSTRAINT [PK_PartsCatalog] PRIMARY KEY CLUSTERED ([ItemId] ASC)
 );
 

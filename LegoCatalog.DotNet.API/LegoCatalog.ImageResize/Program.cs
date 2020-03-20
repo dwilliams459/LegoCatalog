@@ -48,9 +48,9 @@ namespace LegoCatalog.ImageResize
 
                 Thread.Sleep(5000);
             }
-            while (i <= 100);
+            while (i <= 2);
 
-            Console.WriteLine($"Exit after {i} iterations");
+            Console.WriteLine($"Exited after {i} iterations");
 
             // For each image in lego database
             // Download image to local image folder

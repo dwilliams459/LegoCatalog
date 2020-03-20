@@ -31,15 +31,15 @@ namespace LegoCatalog.ImageResize
             db = new PartsCatalogDbContext(contextBuilder.Options);
         }
 
-        public void ResizeSetOfLegoImages(int totalImagesToConvert = 10)
+        public void ResizeSetOfLegoImages(int totalImagesToConvert = 100)
         {
-            string LegoImagesWriteLocation = "f:\\LegoCatalog\\Images";
+            string LegoImagesWriteLocation = "c:\\LegoCatalog\\ImagesJpeg";
 
             int i = 1;
-            foreach (var part in db.Parts.Where(p => string.IsNullOrWhiteSpace(p.IconLink)).Take(totalImagesToConvert).ToList())
+            foreach (var part in db.Parts.Where(p => string.IsNullOrWhiteSpace(p.IconLinkJpeg)).Take(totalImagesToConvert).OrderBy(p => p.ItemId).ToList())
             {
                 byte[] imageBytes;
-                string imageFilename = $"{part.ItemId}.png";
+                string imageFilename = $"{part.ItemId}.jpg";
 
                 try
                 {
@@ -51,16 +51,16 @@ namespace LegoCatalog.ImageResize
                     if (imageBytes != null)
                     {
                         MagickImage image = new MagickImage(imageBytes);
+                        image.Format = MagickFormat.Jpeg;
+                        image.Quality = 75;
 
-                        image.Resize(100, 100);
+                        image.Resize(80, 80);
+                        image.Write(Path.Combine(LegoImagesWriteLocation, $"{part.ItemId}.jpg"));
 
-                        image.Format = MagickFormat.Png;
-                        image.Write(Path.Combine(LegoImagesWriteLocation, $"{part.ItemId}.png"));
-
-                        part.IconLink = imageFilename;
+                        part.IconLinkJpeg = imageFilename;
                         db.SaveChanges();
 
-                        Console.WriteLine($"Converted image {i++} to {part.ItemId}.png");
+                        Console.WriteLine($"Converted image {i++} to {part.ItemId}.jpg");
                     }
                 }
                 catch (Exception ex)
@@ -77,7 +77,7 @@ namespace LegoCatalog.ImageResize
         {
             using (MagickImage image = new MagickImage("filename.png"))
             {
-                MagickGeometry size = new MagickGeometry(100, 100);
+                MagickGeometry size = new MagickGeometry(80, 80);
                 // This will resize the image to a fixed size without maintaining the aspect ratio.
                 // Normally an image will be resized to fit inside the specified size.
                 size.IgnoreAspectRatio = true;
