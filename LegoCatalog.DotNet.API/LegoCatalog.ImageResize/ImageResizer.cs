@@ -45,6 +45,7 @@ namespace LegoCatalog.ImageResize
                 {
                     using (var webClient = new WebClient())
                     {
+                        var imageLink = part.ImageLink.Replace("https://", "");
                         imageBytes = webClient.DownloadData(part.ImageLink);
                     }
 
@@ -55,17 +56,17 @@ namespace LegoCatalog.ImageResize
                         image.Quality = 75;
 
                         image.Resize(80, 80);
-                        image.Write(Path.Combine(LegoImagesWriteLocation, $"{part.ItemId}.jpg"));
+                        image.Write(Path.Combine(LegoImagesWriteLocation, imageFilename));
 
                         part.IconLinkJpeg = imageFilename;
                         db.SaveChanges();
 
-                        Console.WriteLine($"Converted image {i++} to {part.ItemId}.jpg");
+                        Console.WriteLine($"Converted image {i++} to {imageFilename}");
                     }
                 }
                 catch (Exception ex)
                 {
-                    part.IconLink = "error";
+                    part.IconLinkJpeg = "error";
                     db.SaveChanges();
 
                     Console.WriteLine($"Error resizing image {imageFilename} from {part.ImageLink}: {ex.Message}");
