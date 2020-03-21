@@ -63,6 +63,7 @@ artifacts/
 
 # StyleCop
 StyleCopReport.xml
+wwwroot
 
 # Files built by Visual Studio
 *_i.c
