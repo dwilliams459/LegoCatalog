@@ -29,6 +29,7 @@ namespace LegoCatalog.ImageResize
                 .AddJsonFile("appsettings.json", true, true)
                 .Build();
 
+            Console.WriteLine("Begin Conversion");
             Console.WriteLine(_config["ConnectionStrings:LegoCatalogDatabase"]);
 
             var imageResizer = new ImageResize();
@@ -43,12 +44,12 @@ namespace LegoCatalog.ImageResize
                 }
                 else
                 {
-                    imageResizer.ResizeSetOfLegoImages(100);
+                    imageResizer.ResizeSetOfLegoImages(10000);
                 }
 
                 Thread.Sleep(10000);
             }
-            while (i <= 15);
+            while (i <= 20);
 
             Console.WriteLine($"Exited after {i} iterations");
 

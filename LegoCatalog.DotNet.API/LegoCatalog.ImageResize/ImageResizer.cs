@@ -8,6 +8,7 @@ using System.Net;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.FileExtensions;
 using Microsoft.Extensions.Configuration.Json;
+using System.Threading;
 
 // https://www.nuget.org/packages/Magick.NET-Q8-x64/
 // https://github.com/dlemstra/Magick.NET/
@@ -41,8 +42,8 @@ namespace LegoCatalog.ImageResize
             string LegoImagesWriteLocation = "f:\\LegoCatalog\\ImagesJpeg";
 
             int i = 1;
-            //foreach (var part in db.Parts.Where(p => string.IsNullOrWhiteSpace(p.IconLinkJpeg)).Take(totalImagesToConvert).OrderBy(p => p.ItemId).ToList())
-            foreach (var part in db.Parts.Where(p => p.IconLinkJpeg == "error"))
+            foreach (var part in db.Parts.Where(p => string.IsNullOrWhiteSpace(p.IconLinkJpeg)).Take(totalImagesToConvert).OrderBy(p => p.ItemId).ToList())
+            //foreach (var part in db.Parts.Where(p => p.IconLinkJpeg == "error").Take(totalImagesToConvert).OrderBy(p => p.ItemId).ToList())
             {
                 byte[] imageBytes;
                 string imageFilename = $"{part.ItemId}.jpg";
@@ -76,6 +77,7 @@ namespace LegoCatalog.ImageResize
                     db.SaveChanges();
 
                     Console.WriteLine($"Error resizing image {imageFilename} from {part.ImageLink}: {ex.Message}");
+                    Thread.Sleep(1000);  // pause incase the issue is network related
                 }
             }
         }
