@@ -41,7 +41,8 @@ namespace LegoCatalog.ImageResize
             string LegoImagesWriteLocation = "f:\\LegoCatalog\\ImagesJpeg";
 
             int i = 1;
-            foreach (var part in db.Parts.Where(p => string.IsNullOrWhiteSpace(p.IconLinkJpeg)).Take(totalImagesToConvert).OrderBy(p => p.ItemId).ToList())
+            //foreach (var part in db.Parts.Where(p => string.IsNullOrWhiteSpace(p.IconLinkJpeg)).Take(totalImagesToConvert).OrderBy(p => p.ItemId).ToList())
+            foreach (var part in db.Parts.Where(p => p.IconLinkJpeg == "error"))
             {
                 byte[] imageBytes;
                 string imageFilename = $"{part.ItemId}.jpg";
