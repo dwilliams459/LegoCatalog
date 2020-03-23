@@ -62,15 +62,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Release\LegoCatalog.bak" />
-    <None Include="Release\2-01 - Add Quantity To PartCatalog.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Release\0-01 - LegoCatalogSchemaData.sql" />
     <Build Include="dbo\Tables\PartsCatalog.sql" />
     <Build Include="dbo\Tables\PartColor.sql" />
     <Build Include="dbo\Tables\ItemTypes.sql" />
     <Build Include="dbo\Tables\Events.sql" />
     <Build Include="dbo\Tables\Color.sql" />
     <Build Include="dbo\Tables\Category.sql" />
+    <Build Include="dbo\Tables\InventoryPart.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="LegoCatalog.Database.refactorlog" />
   </ItemGroup>
 </Project>
