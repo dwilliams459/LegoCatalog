@@ -14,6 +14,7 @@ using LegoCatalog.Data;
 using LegoCatalog.Service;
 using AutoMapper;
 using System.IO;
+using LegoCatalog.API.Helpers;
 
 namespace LegoCatalog.API
 {
@@ -22,18 +23,18 @@ namespace LegoCatalog.API
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            AzureConfiguration = new AzureConfiguration(configuration);
         }
 
         public IConfiguration Configuration { get; }
+        public AzureConfiguration AzureConfiguration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            string connectionString;
-            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
-                connectionString = Configuration.GetConnectionString("LegoCatalogDatabase");
-            else
-                connectionString = Configuration["ConnectionStrings:LegoCatalogDatabase"];
+            Console.WriteLine($"Environment: {Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")}");
+            string connectionString = AzureConfiguration.GetValue<string>("ConnectionStrings:LegoCatalogDatabase", "LegoCatalogDatabase");
+            Console.WriteLine($"Connection String: {connectionString.Substring(0, 10)}");
 
             services.AddDbContext<PartsCatalogDbContext>(opt =>
                 opt.UseSqlServer(connectionString)  //"Data Source=localhost;Initial Catalog=legocatalog;Integrated Security=True") //)
@@ -45,6 +46,15 @@ namespace LegoCatalog.API
 
             services.AddControllers();
         }
+
+        public T GetValue<T>(string devKey, string azureKey) 
+        {
+            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
+                return Configuration.GetValue<T>(azureKey);
+            else
+                return Configuration.GetValue<T>(devKey);
+        }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
