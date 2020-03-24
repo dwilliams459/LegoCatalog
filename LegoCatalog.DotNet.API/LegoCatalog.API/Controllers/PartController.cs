@@ -66,7 +66,17 @@ namespace LegoCatalog.API.Controllers
         [Route("search")]
         public async Task<List<PartDTO>> Search(PartSearchCriteria searchCriteria = null)
         {
-            List<PartDTO> parts = await _partService.Search(searchCriteria);
+            List<PartDTO> parts = new List<PartDTO>();
+            try
+            {
+                parts = await _partService.Search(searchCriteria);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Search Error: " + ex.Message);
+                //Console.WriteLine(ex.StackTrace);
+                //Console.Write(ex.ToString());
+            }
 
             return (parts == null) ? new List<PartDTO>() : parts;
         }
@@ -94,9 +104,11 @@ namespace LegoCatalog.API.Controllers
             {
                 return await _partService.PartColors(itemId);
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
                 Response.StatusCode = 500;
+                Console.WriteLine("PartColors error:" + ex.Message);
+                //Console.WriteLine(ex.StackTrace);
                 return new List<PartColorDTO>();
             }
         }

@@ -14,10 +14,20 @@ namespace LegoCatalog.API.Helpers
 
         public T GetValue<T>(string devKey, string azureKey) 
         {
+            T value;
             if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
-                return _configuration.GetValue<T>(azureKey);
+            {
+                value = _configuration.GetValue<T>(azureKey);
+                if (value != null)
+                    Console.WriteLine($"Returning Azure {azureKey}:{value.ToString().Substring(0, 10)}");
+            }
             else
-                return _configuration.GetValue<T>(devKey);
+            {
+                value = _configuration.GetValue<T>(devKey);
+                if (value != null)
+                    Console.WriteLine($"Returning Development value {devKey}:{value.ToString().Substring(0, 10)}");
+            }
+            return value;
         }
     }
 }
