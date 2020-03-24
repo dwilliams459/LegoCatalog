@@ -16,4 +16,8 @@
     <ProjectReference Include="..\LegoCatalog.Service\LegoCatalog.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+
 </Project>

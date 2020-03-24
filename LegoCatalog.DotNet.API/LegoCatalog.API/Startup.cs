@@ -29,8 +29,14 @@ namespace LegoCatalog.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string connectionString;
+            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Production")
+                connectionString = Configuration.GetConnectionString("LegoCatalogDatabase");
+            else
+                connectionString = Configuration["ConnectionStrings:LegoCatalogDatabase"];
+
             services.AddDbContext<PartsCatalogDbContext>(opt =>
-                opt.UseSqlServer(Configuration["ConnectionStrings:LegoCatalogDatabase"])  //"Data Source=localhost;Initial Catalog=legocatalog;Integrated Security=True") //)
+                opt.UseSqlServer(connectionString)  //"Data Source=localhost;Initial Catalog=legocatalog;Integrated Security=True") //)
             );
 
             services.AddScoped<PartService>();
