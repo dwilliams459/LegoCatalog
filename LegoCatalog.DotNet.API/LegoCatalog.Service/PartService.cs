@@ -81,7 +81,17 @@ namespace LegoCatalog.Service
             {
                 partQuery = partQuery.Skip(searchCriteria.Page * searchCriteria.PageSize);
             }
-            var parts = await partQuery.Take(searchCriteria.PageSize).ToListAsync();
+
+            List<Part> parts = new List<Part>();
+            try
+            {
+                parts = await partQuery.Take(searchCriteria.PageSize).ToListAsync();
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
 
             string imageBaseUrl = _configuration["IconBaseUrl"];
             foreach (var p in parts)
