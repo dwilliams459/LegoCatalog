@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using LegoCatalog.Data;
 using LegoCatalog.Service;
 using AutoMapper;
+using System.IO;
 
 namespace LegoCatalog.API
 {
@@ -50,10 +51,22 @@ namespace LegoCatalog.API
             }
 
             app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
-
             app.UseRouting();
-
             app.UseAuthorization();
+
+            app.Use(async(context, next) => {
+                await next();
+
+                // If not found redirect to index page
+                if (context.Response.StatusCode == 404 && !Path.HasExtension(context.Request.Path.Value))
+                {
+                    context.Request.Path = "/index.html";
+                    await next();
+                } 
+            });
+
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {

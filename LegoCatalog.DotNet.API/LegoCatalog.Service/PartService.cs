@@ -1,4 +1,5 @@
-﻿using LegoCatalog.Data;
+﻿using Microsoft.Extensions.Configuration;
+using LegoCatalog.Data;
 using LegoCatalog.DTO;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,10 +13,12 @@ namespace LegoCatalog.Service
     public class PartService
     {
         private PartsCatalogDbContext _context;
+        private IConfiguration _configuration;
 
-        public PartService(PartsCatalogDbContext context)
+        public PartService(PartsCatalogDbContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
         }
 
         private string BuildFilter(PartSearchCriteria searchCriteria)
@@ -80,10 +83,11 @@ namespace LegoCatalog.Service
             }
             var parts = await partQuery.Take(searchCriteria.PageSize).ToListAsync();
 
+            string imageBaseUrl = _configuration["IconBaseUrl"];
             foreach (var p in parts)
             {
                 p.ColorQuantity = p.PartColors.Select(pc => pc.Color).Distinct().Count();
-                p.IconLink = $"http://localhost:5000/image/{p.IconLink}";               
+                p.IconLink = $"{imageBaseUrl}/{p.IconLinkJpeg}";  // $"http://localhost:5000/image/{p.IconLink}";               
             }
 
             return parts;
