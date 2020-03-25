@@ -403,6 +403,7 @@ healthchecksdb
 MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
+appsettings.*.json
 .ionide/
 LegoCatalog.DotNet.API/LegoCatalog.API/obj/Debug/netcoreapp3.1/LegoCatalog.API.assets.cache
 LegoCatalog.DotNet.API/LegoCatalog.API/obj/Debug/netcoreapp3.1/LegoCatalog.API.csprojAssemblyReference.cache
