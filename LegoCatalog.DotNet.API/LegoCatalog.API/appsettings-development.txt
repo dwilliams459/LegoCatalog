@@ -1,7 +1,0 @@
-
-        "LegoCatalogDatabase": "Data Source=localhost;Initial Catalog=legocatalog;Integrated Security=True"
-        "LegoCatalogDatabase": "Data Source=.\\sqlexpress;Initial Catalog=legocatalog;Integrated Security=True"
-        "LegoCatalogDatabase": "Server=tcp:legocatalog-sql.database.windows.net,1433;Initial Catalog=LegoCatalog;Persist Security Info=False;User ID=dwilliams459;Password=LegoCatelog1!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
-
-    "IconDirectory": "C:\\LegoCatalog\\Images"
-    "IconDirectory": "F:\\LegoImages"
