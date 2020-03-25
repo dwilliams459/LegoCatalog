@@ -21,6 +21,29 @@ namespace LegoCatalog.Service
             _configuration = configuration;
         }
 
+        public async Task<Part> GetPartById(int partId = 0)
+        {
+            var partQuery = (IQueryable<Part>)_context.Parts.Include(p => p.Category).Include(p => p.ItemType);
+            try
+            {
+                if (partId >= 0)
+                {
+                    string imageBaseUrl = _configuration["IconBaseUrl"];
+
+                    partQuery = partQuery.Where(p => p.PartId == partId);
+                    var part = await partQuery.FirstOrDefaultAsync();
+                    part.IconLink = $"{imageBaseUrl}/{part.IconLinkJpeg}";
+
+                    return await partQuery.FirstOrDefaultAsync();
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            return null;
+        }
+
         private string BuildFilter(PartSearchCriteria searchCriteria)
         {
             var and = string.Empty;
@@ -70,7 +93,7 @@ namespace LegoCatalog.Service
             }
             if (searchCriteria.CategoryName != null && searchCriteria.CategoryName.Length > 0)
                 partQuery = partQuery.Where(p => p.Category.Name.Contains(searchCriteria.CategoryName));
-            if (searchCriteria.ColorOnly) 
+            if (searchCriteria.ColorOnly)
             {
                 partQuery = partQuery.Where(p => p.PartColors != null && p.PartColors.Count > 0);
             }
@@ -131,39 +154,39 @@ namespace LegoCatalog.Service
                 };
 
                 partDto.PartColors = await PartColors(p.ItemId);
-                
+
                 partListDTO.Add(partDto);
             }
 
             return partListDTO;
         }
-        
+
         public async Task<int> UpdateQuantity(int partId, int newValue, string colorId = "")
         {
             var part = await _context.Parts.FirstOrDefaultAsync(p => p.PartId == partId);
             part.Quantity = newValue;
             await _context.SaveChangesAsync();
-            
+
             return part.Quantity;
         }
 
         public async Task<List<PartColorDTO>> PartColors(string itemId)
         {
             var colorQuery = from partColor in _context.PartColors
-                         join color in _context.Colors on partColor.Color equals color.ColorName
-                         where partColor.ItemId == itemId
-                         orderby partColor.CodeName
-                         select new PartColorDTO { ItemId = itemId, RGB = color.RGB, Type = color.Type, Color = color.ColorName };
+                             join color in _context.Colors on partColor.Color equals color.ColorName
+                             where partColor.ItemId == itemId
+                             orderby partColor.CodeName
+                             select new PartColorDTO { ItemId = itemId, RGB = color.RGB, Type = color.Type, Color = color.ColorName };
 
             var colors = await colorQuery.Distinct().ToListAsync();
 
             return colors;
         }
 
-        public async Task<List<string>> Categories() 
+        public async Task<List<string>> Categories()
         {
             List<string> categories = await _context.Parts.Include(p => p.Category)
-                                            .Select(p => p.Category.Name )
+                                            .Select(p => p.Category.Name)
                                             .Distinct()
                                             .ToListAsync();
             categories.Sort();

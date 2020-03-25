@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  serverUrl: 'https://legocatalog.azurewebsites.net/api' // 'http://localhost:5000/api',  //'https://legocatalog.azurewebsites.net/api' 
+  serverUrl: 'https://legocatalog.azurewebsites.net/api' //'http://localhost:5000/api'
 };
 
 /*
