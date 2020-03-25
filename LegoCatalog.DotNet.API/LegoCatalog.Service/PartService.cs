@@ -26,16 +26,22 @@ namespace LegoCatalog.Service
             var partQuery = (IQueryable<Part>)_context.Parts.Include(p => p.Category).Include(p => p.ItemType);
             try
             {
-                if (partId >= 0)
+                var part = new Part();
+
+                if (partId == 0)
                 {
-                    string imageBaseUrl = _configuration["IconBaseUrl"];
-
-                    partQuery = partQuery.Where(p => p.PartId == partId);
-                    var part = await partQuery.FirstOrDefaultAsync();
-                    part.IconLink = $"{imageBaseUrl}/{part.IconLinkJpeg}";
-
-                    return await partQuery.FirstOrDefaultAsync();
+                    partQuery = partQuery.OrderBy(p => new Guid());
+                    part = await partQuery.FirstOrDefaultAsync();
                 }
+                else
+                {
+                    partQuery = partQuery.Where(p => p.PartId == partId);
+                    part = await partQuery.FirstOrDefaultAsync();
+                }
+
+                string imageBaseUrl = _configuration["IconBaseUrl"];
+                part.IconLink = $"{imageBaseUrl}/{part.IconLinkJpeg}";
+                return await partQuery.FirstOrDefaultAsync();
             }
             catch (Exception)
             {

@@ -20,7 +20,7 @@ export class PartComponent implements OnInit {
   }
 
   getPart() {
-    let response = this.partService.getByPartId(10006).then((response: any) => {
+    let response = this.partService.getByPartId(0).then((response: any) => {
       console.log('Response', response);
       this.part = response as Part; //  this.partService.mapPartResponse(response);
     });
