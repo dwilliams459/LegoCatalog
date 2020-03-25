@@ -9,6 +9,9 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { DetailDialogComponent } from '../detaildialog/detaildialog.component';
 import { PageEvent } from '@angular/material/paginator';
+import { ThemePalette } from '@angular/material/core';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-partlist',
@@ -34,13 +37,19 @@ export class PartlistComponent implements OnInit {
   showOnlyColors = false;
   category: string;
 
+  color: ThemePalette = 'primary';
+  mode: ProgressSpinnerMode = 'indeterminate';
+  value = 50;
+  loading: boolean = false;
+
   // MatPaginator Output
   pageEvent: PageEvent;
 
   constructor(
     private fb: FormBuilder,
     private dialog: MatDialog,
-    private partService: ApiService
+    private partService: ApiService,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit() {
@@ -57,6 +66,10 @@ export class PartlistComponent implements OnInit {
         .split(',')
         .map(str => +str);
     }
+  }
+
+  sanitizeImageUrl(imageUrl: string): SafeUrl {
+    return this.sanitizer.bypassSecurityTrustUrl(imageUrl);
   }
 
   pageChanged(pageEvent?: PageEvent) {
@@ -110,6 +123,7 @@ export class PartlistComponent implements OnInit {
   search(itemName: string = '', partName: string = '', colorOnly: boolean = false, category: string = '') {
     console.log('colorOnly: ' + colorOnly);
 
+    this.loading = true;
     const partSearch: PartSearchCriteria = {
       partId: 0,
       itemId: this.searchItemId,
@@ -124,6 +138,7 @@ export class PartlistComponent implements OnInit {
     this.partService.getParts(partSearch).then((response: any) => {
       console.log('Response', response);
       this.legoParts = response as Part[];
+      this.loading = false;
     });
   }
 }

@@ -99,3 +99,24 @@ label {
   display: inline-block;
   font-size: 16px;
 }
+
+.spinner-h2 {
+  margin: 10px;
+}
+
+.spinner-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.spinner-margin {
+  margin: 0 10px;
+}
+
+.spinner-wrapper {
+  display: inline-block;
+  align-items: left;
+  justify-content: left;
+}

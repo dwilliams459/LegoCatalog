@@ -4,54 +4,126 @@
   <div>
     <mat-form-field class="" style="width: 20%; min-width:150px;">
       <mat-label>Part Id</mat-label>
-      <input #txtItemId matInput placeholder="" [(ngModel)]="searchItemId" (keyup)="search()" />
+      <input
+        #txtItemId
+        matInput
+        placeholder=""
+        [(ngModel)]="searchItemId"
+        (change)="search()"
+      />
     </mat-form-field>
     <mat-form-field class="" style="width: 20%; min-width:150px;">
       <mat-label>Part Name</mat-label>
-      <input #txtPartName matInput placeholder="" [(ngModel)]="searchPartName" (keyup)="search()" />
+      <input
+        #txtPartName
+        matInput
+        placeholder=""
+        [(ngModel)]="searchPartName"
+        (change)="search()"
+      />
     </mat-form-field>
     <mat-form-field>
       <mat-label>Categories</mat-label>
-      <select #ddlCategory matNativeControl [(ngModel)]="category" (change)="search()">
+      <select
+        #ddlCategory
+        matNativeControl
+        [(ngModel)]="category"
+        (change)="search()"
+      >
         <option value="">[All]</option>
-        <option *ngFor="let category of categories" value="{{category}}">{{category}}</option>
+        <option *ngFor="let category of categories" value="{{ category }}">{{
+          category
+        }}</option>
       </select>
     </mat-form-field>
-    <mat-checkbox #boolShowOnlyWColors [(ngModel)]="showOnlyColors" (change)="search()">With color only</mat-checkbox>
-    <mat-checkbox #boolShowColors [(ngModel)]="displayColors" (change)="search()">Show color grid</mat-checkbox>
-    <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" [pageIndex]="pageIndex"
-      (page)="pageEvent = pageChanged($event)">
+    <mat-checkbox
+      #boolShowOnlyWColors
+      [(ngModel)]="showOnlyColors"
+      (change)="search()"
+      >With color only</mat-checkbox
+    >
+    <div style="display:inline;">
+      <mat-checkbox
+        #boolShowColors
+        [(ngModel)]="displayColors"
+        (change)="search()"
+        >Show color grid</mat-checkbox
+      >
+    </div>
+    <mat-paginator
+      [length]="length"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="pageSizeOptions"
+      [pageIndex]="pageIndex"
+      (page)="pageEvent = pageChanged($event)"
+    >
     </mat-paginator>
   </div>
+
   <mat-card class="container" fxLayoutWrap fxlayoutAlign="">
-    <ul class="parts">
+    <div class="spinner-wrapper" *ngIf="loading">
+      <mat-spinner
+        class="spinner-margin"
+        [color]="color"
+        [mode]="mode"
+        [value]="value"
+        [diameter]="30"
+        [strokeWidth]="4"
+        
+      >
+      </mat-spinner>
+    </div>
+    <ul class="parts" *ngIf="loading === false">
       <li *ngFor="let part of legoParts" class="lego-item">
         <div class="lego-item-detail">
           <table>
             <tr>
-              <td class="image" style="vertical-align: top;" (click)='openDetailsDialog(part)'><img
-                  src='{{part.iconLink}}' /></td>
+              <td
+                class="image"
+                style="vertical-align: top;"
+                (click)="openDetailsDialog(part)"
+              >
+                <img [src]="sanitizeImageUrl(part.iconLink)" />
+              </td>
               <td class="detail" style="vertical-align: top;">
-                <div class="discription" (click)='openDetailsDialog(part)'>
-                  {{part.itemName}}
+                <div class="discription" (click)="openDetailsDialog(part)">
+                  {{ part.itemName }}
                 </div>
-                <div class="itemId" (click)='openDetailsDialog(part)'>
+                <div class="itemId" (click)="openDetailsDialog(part)">
                   <label>Item ID: </label>{{ part.itemId }}
                 </div>
                 <div class="itemId">
                   <label>Category: </label>{{ part.categoryName }}
-                  <label style="margin-left: 15px;">Size: </label>{{ part.itemDimensionX }} x {{ part.itemDimensionY }}
-                  x {{ part.itemDimensionZ }}
+                  <label style="margin-left: 15px;">Size: </label
+                  >{{ part.itemDimensionX }} x {{ part.itemDimensionY }} x
+                  {{ part.itemDimensionZ }}
                 </div>
                 <div class="itemId">
                   <label>Colors: </label>{{ part.colorCount }}
                   <label style="margin-left:10px;">Quantity: </label>
-                  <input #txtPieceQuantity placehoder="" class="QuantityInput" value="{{ part.quantity }}"
-                    (change)="setQuantity(part, txtPieceQuantity.value)" />
-                  <button id=btnAddQuantity class="QuantityButton" aria-label="Remove from quantity"
-                    (click)="decrementQuantity(part)">-</button>
-                  <button id=btnRemoveQuantity class="QuantityButton" aria-label="Add to quantity"
-                    (click)="incrementQuantity(part)">+</button>
+                  <input
+                    #txtPieceQuantity
+                    placehoder=""
+                    class="QuantityInput"
+                    value="{{ part.quantity }}"
+                    (change)="setQuantity(part, txtPieceQuantity.value)"
+                  />
+                  <button
+                    id="btnAddQuantity"
+                    class="QuantityButton"
+                    aria-label="Remove from quantity"
+                    (click)="decrementQuantity(part)"
+                  >
+                    -
+                  </button>
+                  <button
+                    id="btnRemoveQuantity"
+                    class="QuantityButton"
+                    aria-label="Add to quantity"
+                    (click)="incrementQuantity(part)"
+                  >
+                    +
+                  </button>
                 </div>
                 <div *ngIf="part.colorCount > 0 && boolShowColors.checked">
                   <!-- <div class="itemid">
@@ -70,10 +142,23 @@
                         </td>
                       </tr> -->
                       <tr *ngFor="let color of part.partColors">
-                        <td class="" style="height:15px; width:15px; border:1px solid rgb(79, 90, 114);"
-                          style.background-color="#{{color.rgb}}"></td>
-                        <td class="" style="vertical-align: top;padding-left:6px;">{{color.type | slice : 0 : 4 }}</td>
-                        <td class="" style="vertical-align: top;padding-left:6px;">{{color.color}}</td>
+                        <td
+                          class=""
+                          style="height:15px; width:15px; border:1px solid rgb(79, 90, 114);"
+                          style.background-color="#{{ color.rgb }}"
+                        ></td>
+                        <td
+                          class=""
+                          style="vertical-align: top;padding-left:6px;"
+                        >
+                          {{ color.type | slice: 0:4 }}
+                        </td>
+                        <td
+                          class=""
+                          style="vertical-align: top;padding-left:6px;"
+                        >
+                          {{ color.color }}
+                        </td>
                         <!-- <td>
                           <input #txtPieceQuantity placehoder="" style="margin-left:10px;" class="QuantityInput" />
                           <button id=btnAddQuantity class="QuantityButton" aria-label="Remove from quantity">-</button>
@@ -86,6 +171,7 @@
               </td>
             </tr>
           </table>
+
           <div class="clear-fix"></div>
         </div>
       </li>

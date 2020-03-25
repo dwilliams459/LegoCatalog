@@ -73,8 +73,8 @@ namespace LegoCatalog.API.Controllers
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Search Error: " + ex.Message);
-                //Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("Search Error (controller): " + ex.Message);
+                Console.WriteLine(ex.StackTrace);
                 //Console.Write(ex.ToString());
             }
 

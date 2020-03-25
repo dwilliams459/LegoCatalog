@@ -90,6 +90,8 @@ namespace LegoCatalog.Service
             }
             catch (Exception ex)
             {
+                Console.WriteLine("Search Error (service): " + ex.Message);
+                Console.WriteLine(ex.StackTrace);
                 throw;
             }
 
