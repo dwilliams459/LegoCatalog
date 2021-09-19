@@ -12,6 +12,9 @@
       "program": "${workspaceFolder}/legocatalog.api/bin/Debug/netcoreapp3.1/LegoCatalog.API.dll",
       "args": [],
       "cwd": "${workspaceFolder}",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
       "stopAtEntry": false,
       "console": "internalConsole"
     },
@@ -21,7 +24,7 @@
       "request": "launch",
       "preLaunchTask": "build",
       // If you have changed target frameworks, make sure to update the program path.
-      "program": "${workspaceFolder}/LegoCatalog.DotNet.API/bin/Debug/netcoreapp3.1/LegoCatalog.API.dll",
+      "program": "${workspaceFolder}/legocatalog.api/bin/Debug/netcoreapp3.1/LegoCatalog.API.dll",
       "args": [],
       "cwd": "${workspaceFolder}/",
       "stopAtEntry": false,

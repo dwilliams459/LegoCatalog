@@ -15,6 +15,7 @@ namespace LegoCatalog.API
     {
         public static void Main(string[] args)
         {
+            Console.WriteLine(String.Join(",", args));
             CreateWebHostBuilder(args).Build().Run();
         }
 

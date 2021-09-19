@@ -1,5 +1,5 @@
 <mat-card class="pagecontainer">
-  <mat-card-title>Page List</mat-card-title>
+  <mat-card-title>Search Parts</mat-card-title>
   <div style="clear:both;"></div>
   <div>
     <mat-form-field class="" style="width: 20%; min-width:150px;">
@@ -50,6 +50,42 @@
         >Show color grid</mat-checkbox
       >
     </div>
+  </div>
+  <div>
+    <mat-form-field class="" style="width: 20%; min-width:150px;">
+      <mat-label>Size X</mat-label>
+      <input
+        #txtItemId
+        matInput
+        placeholder=""
+        [(ngModel)]="sizeX"
+        (change)="search()"
+      />
+    </mat-form-field>
+    <mat-form-field class="" style="width: 20%; min-width:150px;">
+      <mat-label>Size Y</mat-label>
+      <input
+        #txtPartName
+        matInput
+        placeholder=""
+        [(ngModel)]="sizeY"
+        (change)="search()"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Size Z</mat-label>
+      <select
+        #ddlCategory
+        matNativeControl
+        [(ngModel)]="sizeZ"
+        (change)="search()"
+      >
+        <option value="">[All]</option>
+        <option *ngFor="let category of categories" value="{{ category }}">{{
+          category
+        }}</option>
+      </select>
+    </mat-form-field>
     <mat-paginator
       [length]="length"
       [pageSize]="pageSize"
@@ -177,5 +213,6 @@
       </li>
     </ul>
     <div style="clear:both;"></div>
+    <a target="_blank" href="https://icons8.com/icons/set/lego-head">Lego Head icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
   </mat-card>
 </mat-card>

@@ -37,6 +37,10 @@ export class PartlistComponent implements OnInit {
   showOnlyColors = false;
   category: string;
 
+  sizeX?: number;
+  sizeY?: number;
+  sizeZ?: number;
+
   color: ThemePalette = 'primary';
   mode: ProgressSpinnerMode = 'indeterminate';
   value = 50;
@@ -132,7 +136,10 @@ export class PartlistComponent implements OnInit {
       colorOnly: this.showOnlyColors,
       displayColors: this.displayColors,
       page: this.pageIndex,
-      pageSize: this.pageSize
+      pageSize: this.pageSize,
+      sizeX: this.sizeX,
+      sizeY: this.sizeY,
+      sizeZ: this.sizeZ
     };
 
     this.partService.getParts(partSearch).then((response: any) => {

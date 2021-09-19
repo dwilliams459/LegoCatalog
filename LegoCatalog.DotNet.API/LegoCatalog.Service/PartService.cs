@@ -104,6 +104,20 @@ namespace LegoCatalog.Service
                 partQuery = partQuery.Where(p => p.PartColors != null && p.PartColors.Count > 0);
             }
 
+            Console.WriteLine($"searchCriteria.SizeX: {searchCriteria.SizeX}");
+            if (searchCriteria.SizeX > 0)
+            {
+                partQuery = partQuery.Where(p => p.ItemDimensionX == searchCriteria.SizeX);
+            }
+            if (searchCriteria.SizeY > 0)
+            {
+                partQuery = partQuery.Where(p => p.ItemDimensionX == searchCriteria.SizeY);
+            }
+            if (searchCriteria.SizeZ > 0)
+            {
+                partQuery = partQuery.Where(p => p.ItemDimensionX == searchCriteria.SizeZ);
+            }
+
             //partQuery = partQuery.Where(p => !string.IsNullOrWhiteSpace(p.IconLink) && p.IconLink != "error");
 
             if (searchCriteria.Page > 0)

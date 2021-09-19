@@ -10,5 +10,8 @@ namespace LegoCatalog.Data
         public bool ColorOnly { get; set; }
         public bool DisplayColors { get; set; }
         public string CategoryName { get; set; }
+        public int? SizeX { get; set; }
+        public int? SizeY { get; set; }
+        public int? SizeZ { get; set; }
     }
 }

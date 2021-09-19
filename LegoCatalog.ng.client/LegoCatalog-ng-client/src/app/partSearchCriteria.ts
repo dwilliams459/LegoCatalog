@@ -7,4 +7,7 @@ export class PartSearchCriteria {
     displayColors: boolean;
     pageSize: number;
     page: number;
+    sizeX?: number;
+    sizeY?: number;
+    sizeZ?: number;
 }
