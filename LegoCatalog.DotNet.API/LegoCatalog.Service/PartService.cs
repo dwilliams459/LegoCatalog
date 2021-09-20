@@ -47,7 +47,6 @@ namespace LegoCatalog.Service
             {
                 return null;
             }
-            return null;
         }
 
         private string BuildFilter(PartSearchCriteria searchCriteria)
@@ -78,11 +77,25 @@ namespace LegoCatalog.Service
                     .Include(p => p.PartColors))
                     .Where(p => true);
 
-            // partQuery = partQuery.Where("asdf");
-            // partQuery = partQuery.Where(p =>
-            //     (string.IsNullOrWhiteSpace(searchCriteria.ItemName) ? true : p.ItemName.ToLower().Contains(searchCriteria.ItemName)) && 
-            //     (string.IsNullOrWhiteSpace(searchCriteria.ItemId) ? true : p.ItemName.ToLower().Contains(searchCriteria.ItemId)) 
-            // );
+            string searchItemName = (searchCriteria.ItemName == null) ? string.Empty : searchCriteria.ItemName.ToLower(); 
+
+            // General Search
+            if (searchCriteria.ItemName != null && searchCriteria.ItemName.Length > 0)
+            {
+                // 'Cat:' prefix for category
+                if (searchItemName.StartsWith("cat:"))
+                {
+                    var catName = searchCriteria.ItemName.Replace("cat:", "");
+                    partQuery = partQuery.Where(p => p.Category.Name.StartsWith(catName));
+                }
+                else 
+                {
+                    partQuery = partQuery.Where(p => p.ItemName.Contains(searchCriteria.ItemName) 
+                                                    || p.PartId.ToString().StartsWith(searchCriteria.ItemName)
+                                                    || p.Category.Name.Contains(searchCriteria.ItemName)
+                                                    || p.ItemId.StartsWith(searchCriteria.ItemName));
+                }
+            }
 
             if (searchCriteria.PartId != null && searchCriteria.PartId > 0)
             {
@@ -93,29 +106,29 @@ namespace LegoCatalog.Service
                 partQuery = partQuery.Where(p => p.ItemId.Equals(searchCriteria.ItemId));
             }
 
-            if (searchCriteria.ItemName != null && searchCriteria.ItemName.Length > 0)
-            {
-                partQuery = partQuery.Where(p => p.ItemName.Contains(searchCriteria.ItemName));
-            }
+
+            // Category Drop down
             if (searchCriteria.CategoryName != null && searchCriteria.CategoryName.Length > 0)
                 partQuery = partQuery.Where(p => p.Category.Name.Contains(searchCriteria.CategoryName));
+            
+            // Return results with color grid
             if (searchCriteria.ColorOnly)
             {
                 partQuery = partQuery.Where(p => p.PartColors != null && p.PartColors.Count > 0);
             }
 
-            Console.WriteLine($"searchCriteria.SizeX: {searchCriteria.SizeX}");
-            if (searchCriteria.SizeX > 0)
+            Console.WriteLine($"searchCriteria.SizeX: {searchCriteria.SizeXNum}");
+            if (searchCriteria.SizeXNum > 0)
             {
-                partQuery = partQuery.Where(p => p.ItemDimensionX == searchCriteria.SizeX);
+                partQuery = partQuery.Where(p => p.ItemDimensionX == searchCriteria.SizeXNum);
             }
-            if (searchCriteria.SizeY > 0)
+            if (searchCriteria.SizeYNum > 0)
             {
-                partQuery = partQuery.Where(p => p.ItemDimensionX == searchCriteria.SizeY);
+                partQuery = partQuery.Where(p => p.ItemDimensionY == searchCriteria.SizeYNum);
             }
-            if (searchCriteria.SizeZ > 0)
+            if (searchCriteria.SizeZNum > 0)
             {
-                partQuery = partQuery.Where(p => p.ItemDimensionX == searchCriteria.SizeZ);
+                partQuery = partQuery.Where(p => p.ItemDimensionZ == searchCriteria.SizeZNum);
             }
 
             //partQuery = partQuery.Where(p => !string.IsNullOrWhiteSpace(p.IconLink) && p.IconLink != "error");

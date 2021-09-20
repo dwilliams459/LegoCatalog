@@ -10,8 +10,12 @@ namespace LegoCatalog.Data
         public bool ColorOnly { get; set; }
         public bool DisplayColors { get; set; }
         public string CategoryName { get; set; }
-        public int? SizeX { get; set; }
-        public int? SizeY { get; set; }
-        public int? SizeZ { get; set; }
+        public string SizeX { get; set; }
+        public string SizeY { get; set; }
+        public string SizeZ { get; set; }
+
+        public int? SizeXNum { get => (int.TryParse(this.SizeX, out int outSize)) ? outSize : 0; }
+        public int? SizeYNum { get => (int.TryParse(this.SizeX, out int outSize)) ? outSize : 0; }
+        public int? SizeZNum { get => (int.TryParse(this.SizeX, out int outSize)) ? outSize : 0; }
     }
 }

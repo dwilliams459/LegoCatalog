@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Http.Extensions;
 using System.IO;
 using LegoCatalog.Service;
 using LegoCatalog.DTO;
+using System.Diagnostics;
 
 namespace LegoCatalog.API.Controllers
 {
@@ -69,6 +70,7 @@ namespace LegoCatalog.API.Controllers
             List<PartDTO> parts = new List<PartDTO>();
             try
             {
+                Console.WriteLine("Search");
                 parts = await _partService.Search(searchCriteria);
             }
             catch(Exception ex)

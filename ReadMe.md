@@ -15,14 +15,10 @@ To build and run locally, do the following steps.  Files are coppied to the api/
 3. In angular.json set config setting:
     > "outputPath": "../../legocatalog.dotnet.api/legocatalog.api/wwwroot/assets"
 
-4. Build application from command line
+4. In the ng.client directory, from command line, install angular-devkit (if not installed), and build application from command line.
     >[npm install --save-dev @angular-devkit/build-angular]
     >ng build
 5. From command line in the api directory ``(legocatalog.dotnet.api/legocatalog.api)`` run
     > dotnet watch run
 6. Browse to
     > https://localhost:5001
-
-
-
-Coppied 

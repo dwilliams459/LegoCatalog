@@ -2,7 +2,17 @@
   <mat-card-title>Search Parts</mat-card-title>
   <div style="clear:both;"></div>
   <div>
-    <mat-form-field class="" style="width: 20%; min-width:150px;">
+    <mat-form-field class="" style="width: 30%; min-width:150px;">
+      <mat-label>Part Name, Part id, category, item id</mat-label>
+      <input
+        #txtPartName
+        matInput
+        placeholder=""
+        [(ngModel)]="searchPartName"
+        (change)="search()"
+      />
+    </mat-form-field>    
+    <!-- <mat-form-field class="" style="width: 20%; min-width:150px;">
       <mat-label>Part Id</mat-label>
       <input
         #txtItemId
@@ -11,17 +21,8 @@
         [(ngModel)]="searchItemId"
         (change)="search()"
       />
-    </mat-form-field>
-    <mat-form-field class="" style="width: 20%; min-width:150px;">
-      <mat-label>Part Name</mat-label>
-      <input
-        #txtPartName
-        matInput
-        placeholder=""
-        [(ngModel)]="searchPartName"
-        (change)="search()"
-      />
-    </mat-form-field>
+    </mat-form-field> -->
+
     <mat-form-field>
       <mat-label>Categories</mat-label>
       <select
@@ -52,7 +53,7 @@
     </div>
   </div>
   <div>
-    <mat-form-field class="" style="width: 20%; min-width:150px;">
+    <mat-form-field class="" style="width: 20%; min-width:20px;">
       <mat-label>Size X</mat-label>
       <input
         #txtItemId
@@ -62,7 +63,7 @@
         (change)="search()"
       />
     </mat-form-field>
-    <mat-form-field class="" style="width: 20%; min-width:150px;">
+    <mat-form-field class="" style="width: 20%; min-width:20px;">
       <mat-label>Size Y</mat-label>
       <input
         #txtPartName
@@ -72,20 +73,18 @@
         (change)="search()"
       />
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field class="" style="width: 20%; min-width:20px;">
       <mat-label>Size Z</mat-label>
-      <select
-        #ddlCategory
-        matNativeControl
+      <input
+        #txtPartName
+        matInput
+        placeholder=""
         [(ngModel)]="sizeZ"
         (change)="search()"
-      >
-        <option value="">[All]</option>
-        <option *ngFor="let category of categories" value="{{ category }}">{{
-          category
-        }}</option>
-      </select>
+      />
     </mat-form-field>
+
+
     <mat-paginator
       [length]="length"
       [pageSize]="pageSize"
@@ -121,45 +120,48 @@
               >
                 <img [src]="sanitizeImageUrl(part.iconLink)" />
               </td>
-              <td class="detail" style="vertical-align: top;">
+              <td class="detail" style="vertical-align: top;width:90%;">
                 <div class="discription" (click)="openDetailsDialog(part)">
                   {{ part.itemName }}
                 </div>
                 <div class="itemId" (click)="openDetailsDialog(part)">
                   <label>Item ID: </label>{{ part.itemId }}
+                  <label style="margin-left: 20px;">Part ID: </label>{{ part.partId }}
                 </div>
                 <div class="itemId">
                   <label>Category: </label>{{ part.categoryName }}
-                  <label style="margin-left: 15px;">Size: </label
+                  <label style="margin-left: 20px;">Size: </label
                   >{{ part.itemDimensionX }} x {{ part.itemDimensionY }} x
                   {{ part.itemDimensionZ }}
                 </div>
                 <div class="itemId">
                   <label>Colors: </label>{{ part.colorCount }}
-                  <label style="margin-left:10px;">Quantity: </label>
-                  <input
-                    #txtPieceQuantity
-                    placehoder=""
-                    class="QuantityInput"
-                    value="{{ part.quantity }}"
-                    (change)="setQuantity(part, txtPieceQuantity.value)"
-                  />
-                  <button
-                    id="btnAddQuantity"
-                    class="QuantityButton"
-                    aria-label="Remove from quantity"
-                    (click)="decrementQuantity(part)"
-                  >
-                    -
-                  </button>
-                  <button
-                    id="btnRemoveQuantity"
-                    class="QuantityButton"
-                    aria-label="Add to quantity"
-                    (click)="incrementQuantity(part)"
-                  >
-                    +
-                  </button>
+                  <div style="float:right;">
+                    <label style="margin-left:10px;">Quantity: </label>
+                    <input
+                      #txtPieceQuantity
+                      placehoder=""
+                      class="QuantityInput"
+                      value="{{ part.quantity }}"
+                      (change)="setQuantity(part, txtPieceQuantity.value)"
+                    />
+                    <button
+                      id="btnAddQuantity"
+                      class="QuantityButton"
+                      aria-label="Remove from quantity"
+                      (click)="decrementQuantity(part)"
+                    >
+                      -
+                    </button>
+                    <button
+                      id="btnRemoveQuantity"
+                      class="QuantityButton"
+                      aria-label="Add to quantity"
+                      (click)="incrementQuantity(part)"
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
                 <div *ngIf="part.colorCount > 0 && boolShowColors.checked">
                   <!-- <div class="itemid">

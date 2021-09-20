@@ -124,6 +124,17 @@ export class PartlistComponent implements OnInit {
     this.partService.setQuantity(part, part.quantity);
   }
 
+  clearSearch() {
+    this.searchItemId = '';
+    this.searchPartName = '';
+    this.category = '';
+    this.showOnlyColors = false;
+    this.displayColors = false;
+    this.sizeX = null;
+    this.sizeY = null;
+    this.sizeZ = null;
+  }
+
   search(itemName: string = '', partName: string = '', colorOnly: boolean = false, category: string = '') {
     console.log('colorOnly: ' + colorOnly);
 
