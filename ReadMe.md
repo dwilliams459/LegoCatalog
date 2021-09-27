@@ -1,9 +1,10 @@
 #Lego Catalog
-### Angular application with .Net Core API backend
+## Angular application with .Net Core API backend
  Refer to [Udemy Course: Build an app with ASPNet Core and Angualr from Scratch]("https://www.udemy.com/course/build-an-app-with-aspnet-core-and-angular-from-scratch/").  Section 19 describs how to publish application.
 
 Utilizes [Brick Link]("https://bricklink.com")  lego database downloaded from  Lego part database found at [Rebrickable.com]("https://rebrickable.com/downloads")
 
+### Build and run locally
 To build and run locally, do the following steps.  Files are coppied to the api/wwwroot folder.
 ``
 1. In console go to ``LegoCatalog.ng.client\LegoCatalog-ng-client``
@@ -22,3 +23,17 @@ To build and run locally, do the following steps.  Files are coppied to the api/
     > dotnet watch run
 6. Browse to
     > https://localhost:5001
+
+### Deploy
+To deploy to Azure, do the following: 
+1. Build Angular in prod mode 
+   > ng build --prod
+2. Publish dotnet application
+   > dotnet publish -o ./publish
+3. Verify in publish/wwwroot/main.js: 
+    >const environment = {
+      production: true,
+      serverUrl: 'https://xxxx.azurewebsites.net/api'
+    };
+4. In VS Code w/ Azure extensions installed, right click 'publish' folder and select 'deploy'
+   > dotnet publish -c Release -o ./publish  

@@ -77,20 +77,21 @@ namespace LegoCatalog.Service
                     .Include(p => p.PartColors))
                     .Where(p => true);
 
-            string searchItemName = (searchCriteria.ItemName == null) ? string.Empty : searchCriteria.ItemName.ToLower(); 
+            string searchItemName = (searchCriteria.ItemName == null) ? string.Empty : searchCriteria.ItemName.ToLower().Trim();
 
             // General Search
             if (searchCriteria.ItemName != null && searchCriteria.ItemName.Length > 0)
             {
                 // 'Cat:' prefix for category
-                if (searchItemName.StartsWith("cat:"))
+                if (searchItemName.StartsWith("c:"))
+                    partQuery = partQuery.Where(p => p.Category.Name.StartsWith(searchCriteria.ItemName.Replace("cat:", "")));
+                else if (searchItemName.StartsWith("p:"))
+                    partQuery = partQuery.Where(p => p.PartId.ToString().StartsWith(searchCriteria.ItemName.Replace("part:", "")));
+                else if (searchItemName.StartsWith("i:"))
+                    partQuery = partQuery.Where(p => p.ItemId.StartsWith(searchCriteria.ItemName.Replace("item:", "")));
+                else
                 {
-                    var catName = searchCriteria.ItemName.Replace("cat:", "");
-                    partQuery = partQuery.Where(p => p.Category.Name.StartsWith(catName));
-                }
-                else 
-                {
-                    partQuery = partQuery.Where(p => p.ItemName.Contains(searchCriteria.ItemName) 
+                    partQuery = partQuery.Where(p => p.ItemName.Contains(searchCriteria.ItemName)
                                                     || p.PartId.ToString().StartsWith(searchCriteria.ItemName)
                                                     || p.Category.Name.Contains(searchCriteria.ItemName)
                                                     || p.ItemId.StartsWith(searchCriteria.ItemName));
@@ -110,7 +111,7 @@ namespace LegoCatalog.Service
             // Category Drop down
             if (searchCriteria.CategoryName != null && searchCriteria.CategoryName.Length > 0)
                 partQuery = partQuery.Where(p => p.Category.Name.Contains(searchCriteria.CategoryName));
-            
+
             // Return results with color grid
             if (searchCriteria.ColorOnly)
             {
@@ -159,6 +160,13 @@ namespace LegoCatalog.Service
             }
 
             return parts;
+        }
+
+        //private static IQueryable<Part> SearchPrefix(PartSearchCriteria searchCriteria, IQueryable<Part> partQuery, string prefix)
+        private static void SearchPrefix(PartSearchCriteria searchCriteria, IQueryable<Part> partQuery, string prefix)
+        {
+            var searchItemValue = searchCriteria.ItemName.Replace(prefix, "");
+            partQuery = partQuery.Where(p => p.Category.Name.StartsWith(searchItemValue));
         }
 
         public async Task<List<PartDTO>> Search(PartSearchCriteria searchCriteria)

@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { Part } from '../part';
 import { PartColor } from '../partColor';
 import { ApiService } from '../api.service';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-detaildialog',

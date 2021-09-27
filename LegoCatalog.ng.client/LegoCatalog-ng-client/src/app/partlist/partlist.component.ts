@@ -6,6 +6,7 @@ import { ApiService } from '../api.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { $ } from 'protractor';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatButton } from '@angular/material/button';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { DetailDialogComponent } from '../detaildialog/detaildialog.component';
 import { PageEvent } from '@angular/material/paginator';
@@ -124,7 +125,7 @@ export class PartlistComponent implements OnInit {
     this.partService.setQuantity(part, part.quantity);
   }
 
-  clearSearch() {
+  public clearSearch() {
     this.searchItemId = '';
     this.searchPartName = '';
     this.category = '';
@@ -133,6 +134,8 @@ export class PartlistComponent implements OnInit {
     this.sizeX = null;
     this.sizeY = null;
     this.sizeZ = null;
+
+    this.search();
   }
 
   search(itemName: string = '', partName: string = '', colorOnly: boolean = false, category: string = '') {

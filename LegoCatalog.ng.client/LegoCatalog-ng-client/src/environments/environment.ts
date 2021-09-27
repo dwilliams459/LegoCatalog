@@ -4,7 +4,6 @@
 
 export const environment = {
   production: false,
-  /* serverUrl: 'https://legocatalog2.azurewebsites.net/api' */
   serverUrl: 'http://localhost:5000/api'
 };
 

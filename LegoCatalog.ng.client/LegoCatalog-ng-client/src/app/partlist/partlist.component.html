@@ -1,15 +1,16 @@
 <mat-card class="pagecontainer">
   <mat-card-title>Search Parts</mat-card-title>
   <div style="clear:both;"></div>
-  <div>
-    <mat-form-field class="" style="width: 30%; min-width:150px;">
-      <mat-label>Part Name, Part id, category, item id</mat-label>
+  <div class="row">
+    <mat-form-field class="" style="width: 30%; min-width:500px;">
+      <mat-label>Part Name, Part id, category, item id, c:[cat name], p:[part id], i:[item id]</mat-label>
       <input
         #txtPartName
         matInput
         placeholder=""
         [(ngModel)]="searchPartName"
         (change)="search()"
+        class="search-input"
       />
     </mat-form-field>    
     <!-- <mat-form-field class="" style="width: 20%; min-width:150px;">
@@ -30,6 +31,7 @@
         matNativeControl
         [(ngModel)]="category"
         (change)="search()"
+        class="search-input"
       >
         <option value="">[All]</option>
         <option *ngFor="let category of categories" value="{{ category }}">{{
@@ -37,23 +39,10 @@
         }}</option>
       </select>
     </mat-form-field>
-    <mat-checkbox
-      #boolShowOnlyWColors
-      [(ngModel)]="showOnlyColors"
-      (change)="search()"
-      >With color only</mat-checkbox
-    >
-    <div style="display:inline;">
-      <mat-checkbox
-        #boolShowColors
-        [(ngModel)]="displayColors"
-        (change)="search()"
-        >Show color grid</mat-checkbox
-      >
-    </div>
+
   </div>
-  <div>
-    <mat-form-field class="" style="width: 20%; min-width:20px;">
+  <div class="row">
+    <mat-form-field class="search-size-textbox">
       <mat-label>Size X</mat-label>
       <input
         #txtItemId
@@ -61,9 +50,10 @@
         placeholder=""
         [(ngModel)]="sizeX"
         (change)="search()"
+        class="search-input"
       />
     </mat-form-field>
-    <mat-form-field class="" style="width: 20%; min-width:20px;">
+    <mat-form-field class="search-size-textbox">
       <mat-label>Size Y</mat-label>
       <input
         #txtPartName
@@ -71,9 +61,10 @@
         placeholder=""
         [(ngModel)]="sizeY"
         (change)="search()"
+        class="search-input"
       />
     </mat-form-field>
-    <mat-form-field class="" style="width: 20%; min-width:20px;">
+    <mat-form-field class="search-size-textbox">
       <mat-label>Size Z</mat-label>
       <input
         #txtPartName
@@ -81,15 +72,31 @@
         placeholder=""
         [(ngModel)]="sizeZ"
         (change)="search()"
+        class="search-input"
       />
     </mat-form-field>
-
+    <mat-checkbox 
+      #boolShowOnlyWColors
+      [(ngModel)]="showOnlyColors"
+      (change)="search()"
+      >With color only</mat-checkbox
+    >
+    <div style="display:inline;">
+      <mat-checkbox 
+        #boolShowColors
+        [(ngModel)]="displayColors"
+        (change)="search()"
+        >Show color grid</mat-checkbox
+      >
+    </div>
+    <button mat-raised-button id="clear" (click)="clearSearch()" class="float-right " color="primary" >Clear</button>
 
     <mat-paginator
       [length]="length"
       [pageSize]="pageSize"
       [pageSizeOptions]="pageSizeOptions"
       [pageIndex]="pageIndex"
+      [fxLayoutGap.gt-lg]
       (page)="pageEvent = pageChanged($event)"
     >
     </mat-paginator>
