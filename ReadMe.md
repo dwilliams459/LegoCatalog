@@ -26,14 +26,13 @@ To build and run locally, do the following steps.  Files are coppied to the api/
 
 ### Deploy
 To deploy to Azure, do the following: 
-1. Build Angular in prod mode 
+1. Build Angular in prod mode. In ./LegoCatalog-ng-client type:
    > ng build --prod
-2. Publish dotnet application
-   > dotnet publish -o ./publish
+2. Publish dotnet application.  In ./LegoCatalog.API type:
+   > dotnet publish -c Release -o ../../publish  
 3. Verify in publish/wwwroot/main.js: 
     >const environment = {
       production: true,
       serverUrl: 'https://xxxx.azurewebsites.net/api'
     };
-4. In VS Code w/ Azure extensions installed, right click 'publish' folder and select 'deploy'
-   > dotnet publish -c Release -o ./publish  
+3. In VS Code w/ Azure extensions installed, right click 'publish' folder and select 'deploy'
